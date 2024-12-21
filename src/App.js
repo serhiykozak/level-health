@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Heart, Navigation, Phone, Users, Home, Mail, Info, FileText, CheckCircle, Shield, Target, Stethoscope, Star } from 'lucide-react';
 
 const Navbar = ({ activePage, setActivePage }) => (
-  <nav className="bg-blue-900 p-4 text-white">
+  <nav className="bg-blue-900 p-4 text-white" style={{
+    backgroundImage: "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    filter: 'brightness(0.8)'
+  }}>
     <div className="container mx-auto flex flex-wrap justify-between items-center">
       <div className="text-xl font-bold">Level Health</div>
       <div className="flex space-x-4">
@@ -16,9 +21,13 @@ const Navbar = ({ activePage, setActivePage }) => (
           <button
             key={item.name}
             onClick={() => setActivePage(item.name)}
-            className={`flex items-center space-x-1 px-3 py-2 rounded ${
+            className={`flex items-center space-x-1 px-3 py-2 rounded transition-all duration-300 ${
               activePage === item.name ? 'bg-blue-700' : 'hover:bg-blue-800'
             }`}
+            style={{
+              backgroundColor: activePage === item.name ? 'rgba(0, 0, 0, 0.5)' : 'transparent',
+              color: 'white'
+            }}
           >
             <item.icon size={16} />
             <span>{item.name}</span>
