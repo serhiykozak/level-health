@@ -74,7 +74,7 @@ const HomePage = ({ setActivePage }) => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/Gemini_Generated_Image_q1v4hqq1v4.jpeg')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')",
             filter: "brightness(0.7)",
             backgroundSize: 'cover',
             backgroundPosition: 'center'
