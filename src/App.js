@@ -3,7 +3,7 @@ import { Heart, Navigation, Phone, Users, Home, Mail, Info, FileText, CheckCircl
 
 const Navbar = ({ activePage, setActivePage }) => (
   <nav className="bg-blue-900 p-4 text-white" style={{
-    backgroundImage: "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')",
+    backgroundImage: "url('https://images.unsplash.com/photo-1580281658629-1c4f6f3f9b7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     filter: 'brightness(0.8)'
