@@ -6,7 +6,7 @@ import {
 
 const ServicesPage = ({ setActivePage }) => {
   const [hoveredCircle, setHoveredCircle] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCircle, setSelectedCircle] = useState(null);
   const servicesRef = useRef({});
   const [expandedSections, setExpandedSections] = useState({});
 
@@ -23,10 +23,14 @@ const ServicesPage = ({ setActivePage }) => {
   }, []);
 
   const toggleSection = (serviceId) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [serviceId]: !prev[serviceId],
-    }));
+    setExpandedSections((prev) => {
+      const newState = {
+        ...prev,
+        [serviceId]: !prev[serviceId],
+      };
+      setSelectedCircle(newState[serviceId] ? serviceId : null);
+      return newState;
+    });
   };
 
   // Circle data
@@ -266,7 +270,7 @@ const ServicesPage = ({ setActivePage }) => {
 
   // Scroll
   const scrollToService = (id) => {
-    setSelectedCategory(id);
+    setSelectedCircle(id);
     setExpandedSections({});
     setTimeout(() => {
       setExpandedSections((prev) => ({
@@ -336,7 +340,7 @@ const ServicesPage = ({ setActivePage }) => {
       y = centerY + radiusPx * Math.sin(angleRad);
     }
 
-    return {
+    const baseStyle = {
       position: 'absolute',
       width: `${diameter}px`,
       height: `${diameter}px`,
@@ -345,13 +349,16 @@ const ServicesPage = ({ setActivePage }) => {
       transform: 'translate(-50%, -50%)',
       borderRadius: '9999px',
       backgroundColor: color,
-      zIndex: hoveredCircle === id ? 100 : zIndices[id] || 10,
+      zIndex: hoveredCircle === id || selectedCircle === id ? 100 : zIndices[id] || 10,
       cursor: 'pointer',
       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-      boxShadow: hoveredCircle === id 
+      boxShadow: hoveredCircle === id || selectedCircle === id
         ? '0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
-        : 'none'
+        : 'none',
+      scale: selectedCircle === id ? '1.1' : '1'
     };
+
+    return baseStyle;
   };
 
   // Centered text overlay
@@ -440,7 +447,7 @@ const ServicesPage = ({ setActivePage }) => {
               ref={el => (servicesRef.current[service.id] = el)}
               className={
                 "bg-white rounded-xl shadow-lg p-8 transition-all duration-500 " +
-                (selectedCategory === service.id ? "scale-105" : "")
+                (selectedCircle === service.id ? "scale-105" : "")
               }
             >
               <div
