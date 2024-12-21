@@ -5,7 +5,7 @@ const Navbar = ({ activePage, setActivePage }) => (
   <nav className="bg-blue-900 p-4 text-white">
     
     <div className="container mx-auto flex flex-wrap justify-between items-center">
-      <div className="text-xl font-bold">Level Health</div>
+      <div className="text-xl font-bold">levɘl health</div>
       <div className="flex space-x-4">
         {[
           { name: 'Home', icon: Home },
@@ -13,7 +13,7 @@ const Navbar = ({ activePage, setActivePage }) => (
           { name: 'Case Studies', icon: FileText },
           { name: 'About', icon: Info },
           { name: 'Contact', icon: Phone }
-        ].map(item => (
+        ].map(item => ( 
           <button
             key={item.name}
             onClick={() => setActivePage(item.name)}
@@ -39,14 +39,14 @@ const HomePage = ({ setActivePage }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [stats] = useState([
     { label: "Years Experience", value: 15, suffix: "+" },
-    { label: "Clients Served", value: 500, suffix: "+" },
+    { label: "Clients Served", value: 50, suffix: "+" },
     { label: "Success Rate", value: 98, suffix: "%" },
-    { label: "Healthcare Partners", value: 75, suffix: "+" }
+    { label: "Healthcare Partners", value: 10, suffix: "+" }
   ]);
 
   const testimonials = [
     {
-      text: "Level Health transformed our healthcare journey. Their expertise and dedication made all the difference.",
+      text: "levɘl health transformed our healthcare journey. Their expertise and dedication made all the difference.",
       author: "Sarah M., Family Caregiver"
     },
     {
@@ -170,7 +170,7 @@ const HomePage = ({ setActivePage }) => {
         </div>
 
         <div className="bg-blue-50 p-8 rounded-lg shadow-lg mb-12">
-          <h2 className="text-2xl font-bold mb-4">Why Choose Level Health?</h2>
+          <h2 className="text-2xl font-bold mb-4">Why Choose levɘl health?</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-xl font-semibold mb-2">Common Healthcare Challenges We Address:</h3>
@@ -189,7 +189,7 @@ const HomePage = ({ setActivePage }) => {
                 <li>Streamlined care navigation and coordination</li>
                 <li>Insurance benefits and appeals management</li>
                 <li>Educational resources and informed decision support</li>
-                <li>Worldwide service availability</li>
+                {/* <li>Worldwide service availability</li> */}
               </ul>
             </div>
           </div>
@@ -588,7 +588,7 @@ const CaseStudiesPage = () => {
 
 const AboutPage = () => (
   <div className="container mx-auto px-4 py-8">
-    <h2 className="text-3xl font-bold mb-8">About Level Health</h2>
+    <h2 className="text-3xl font-bold mb-8">About levɘl health</h2>
     <div className="grid md:grid-cols-2 gap-8">
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <div className="flex flex-col items-center mb-6">
@@ -704,7 +704,7 @@ const App = () => {
       {renderPage()}
       <footer className="bg-blue-900 text-white p-4 mt-12">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 Level Health. All rights reserved.</p>
+          <p>&copy; 2024 levɘl health. All rights reserved.</p>
         </div>
       </footer>
     </div>
