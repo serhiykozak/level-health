@@ -33,7 +33,7 @@ const ServicesPage = ({ setActivePage }) => {
   const circleMenuItems = [
     {
       id: 'center',
-      title: 'Meeting Health Needs',
+      title: 'Meeting Wellness Goals',
       icon: Target,
       color: '#1D4ED8', // Tailwind "blue-600"
       description: 'Comprehensive support for achieving your health and wellness objectives.',
@@ -424,13 +424,13 @@ const ServicesPage = ({ setActivePage }) => {
       {/* Service Sections */}
       <div className="space-y-16 mt-16">
         {[
-          circleMenuItems.find(item => item.id === 'center'),        
-          circleMenuItems.find(item => item.id === 'clinical'),      
-          circleMenuItems.find(item => item.id === 'records'),       
-          circleMenuItems.find(item => item.id === 'insurance'),     
-          circleMenuItems.find(item => item.id === 'coordination'),  
-          circleMenuItems.find(item => item.id === 'support'),       
-          circleMenuItems.find(item => item.id === 'coaching')       
+          circleMenuItems.find(item => item.id === 'center'),        // Meeting Wellness Goals
+          circleMenuItems.find(item => item.id === 'insurance'),     // Insurance Navigation
+          circleMenuItems.find(item => item.id === 'coordination'),  // Provider Coordination
+          circleMenuItems.find(item => item.id === 'records'),       // Medical Records
+          circleMenuItems.find(item => item.id === 'coaching'),      // Life Coaching
+          circleMenuItems.find(item => item.id === 'clinical'),      // Clinical Assessment
+          circleMenuItems.find(item => item.id === 'support')        // Family Support
         ].map(service => {
           if (!service) return null; // safeguard
 
