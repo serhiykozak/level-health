@@ -10,7 +10,7 @@ const Navbar = ({ activePage, setActivePage }) => (
         {[
           { name: 'Home', icon: Home },
           { name: 'Services', icon: Heart },
-          { name: 'Case Studies', icon: FileText },
+          { name: 'Cases', icon: FileText },
           { name: 'About', icon: Info },
           { name: 'Contact', icon: Phone }
         ].map(item => ( 

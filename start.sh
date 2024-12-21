@@ -57,47 +57,47 @@ error() {
 # npx tailwindcss init -p
 
 
-# Create/update configuration files
-echo "Creating configuration files..."
+# # Create/update configuration files
+# echo "Creating configuration files..."
 
-# Update tailwind.config.js
-cat > tailwind.config.js << EOL
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
-}
-EOL
+# # Update tailwind.config.js
+# cat > tailwind.config.js << EOL
+# module.exports = {
+#   content: [
+#     "./src/**/*.{js,jsx,ts,tsx}",
+#   ],
+#   theme: {
+#     extend: {},
+#   },
+#   plugins: [
+#     require('@tailwindcss/forms'),
+#   ],
+# }
+# EOL
 
-# Update index.css
-cat > src/index.css << EOL
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-EOL
+# # Update index.css
+# cat > src/index.css << EOL
+# @tailwind base;
+# @tailwind components;
+# @tailwind utilities;
+# EOL
 
-# Create reportWebVitals.js
-cat > src/reportWebVitals.js << EOL
-const reportWebVitals = onPerfEntry => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
-    });
-  }
-};
+# # Create reportWebVitals.js
+# cat > src/reportWebVitals.js << EOL
+# const reportWebVitals = onPerfEntry => {
+#   if (onPerfEntry && onPerfEntry instanceof Function) {
+#     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+#       getCLS(onPerfEntry);
+#       getFID(onPerfEntry);
+#       getFCP(onPerfEntry);
+#       getLCP(onPerfEntry);
+#       getTTFB(onPerfEntry);
+#     });
+#   }
+# };
 
-export default reportWebVitals;
-EOL
+# export default reportWebVitals;
+# EOL
 
 # # Modify the Git repository setup
 # echo "Initializing Git repository..."
