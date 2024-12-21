@@ -33,9 +33,9 @@ const App = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar activePage={activePage} setActivePage={setActivePage} />
       {renderPage()}
-      <footer className="bg-blue-900 text-white p-4 mt-12">
+      <footer className="bg-blue-50 p-4 mt-12 shadow-sm">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 <span className="font-bold">levɘl</span> health navigation. All rights reserved.</p>
+          <p className="text-blue-900">&copy; 2024 <span className="font-bold">levɘl</span> health navigation. All rights reserved.</p>
         </div>
       </footer>
     </div>

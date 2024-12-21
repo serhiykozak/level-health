@@ -355,18 +355,18 @@ const HomePage = ({ setActivePage }) => {
         </div>
 
         {/* Call to Action */}
-        <div className="bg-blue-900 text-white p-12 rounded-2xl shadow-lg text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
-          <p className="text-xl mb-8 opacity-90">Let us help you navigate your healthcare journey with confidence.</p>
+        <div className="bg-blue-50 p-12 rounded-2xl shadow-sm text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Ready to Start Your Journey?</h2>
+          <p className="text-xl mb-8 text-blue-800">Let us help you navigate your healthcare journey with confidence.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              className="bg-white text-blue-900 px-8 py-4 rounded-full text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
+              className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
               onClick={() => setActivePage('Contact')}
             >
               Schedule a Consultation
             </button>
             <button 
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+              className="bg-transparent border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
               onClick={() => setActivePage('Cases')}
             >
               View Case Studies

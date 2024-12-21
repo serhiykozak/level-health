@@ -141,8 +141,27 @@ const ProcessPage = ({ setActivePage }) => {
         </div>
       </div>
 
+      {/* Call to Action */}
+      <div className="bg-blue-50 shadow-sm w-full">
+        <div className="max-w-3xl mx-auto p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Ready to Start Your Journey?</h2>
+          <p className="text-xl mb-8 text-blue-800">
+            Contact us today to learn more about how we can support your healthcare journey.
+          </p>
+          <button 
+            onClick={() => {
+              setActivePage('Contact');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+          >
+            Schedule a Consultation
+          </button>
+        </div>
+      </div>
+
       {/* Next Page Navigation */}
-      <div className="text-center mb-16">
+      <div className="mt-12 flex justify-center">
         <button
           onClick={() => {
             setActivePage('Cases');
@@ -163,7 +182,7 @@ const ProcessPage = ({ setActivePage }) => {
       </div>
 
       {/* Benefits Section */}
-      <div className="bg-gradient-to-br from-blue-50 to-white p-12 rounded-2xl shadow-lg mb-16">
+      <div className="p-12 mb-16">
         <h2 className="text-3xl font-bold mb-12 text-center">Benefits of Our Process</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
@@ -179,21 +198,6 @@ const ProcessPage = ({ setActivePage }) => {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Call to Action */}
-      <div className="bg-blue-900 text-white p-12 rounded-2xl shadow-lg text-center">
-        <h2 className="text-3xl font-bold mb-6">Ready to Begin Your Journey?</h2>
-        <p className="text-xl mb-8 opacity-90">Let us guide you through each step of your healthcare navigation.</p>
-        <button 
-          onClick={() => {
-            setActivePage('Contact');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className="bg-white text-blue-900 px-8 py-4 rounded-full text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
-        >
-          Schedule Your Initial Consultation
-        </button>
       </div>
     </div>
   );

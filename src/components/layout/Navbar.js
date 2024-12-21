@@ -12,9 +12,9 @@ const Navbar = ({ activePage, setActivePage }) => {
   ];
 
   return (
-    <nav className="bg-blue-900 p-4 text-white">
+    <nav className="bg-blue-50 p-4 shadow-sm">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
-        <div className="text-xl whitespace-nowrap">
+        <div className="text-xl whitespace-nowrap text-blue-900">
           <span className="font-bold">levɘl</span> health navigation
         </div>
         <div className="overflow-x-auto scrollbar-hide md:overflow-visible">
@@ -24,12 +24,8 @@ const Navbar = ({ activePage, setActivePage }) => {
                 key={item.name}
                 onClick={() => setActivePage(item.name)}
                 className={`flex items-center space-x-1 px-3 py-2 rounded transition-all duration-300 whitespace-nowrap ${
-                  activePage === item.name ? 'bg-blue-700' : 'hover:bg-blue-800'
+                  activePage === item.name ? 'bg-blue-100 text-blue-900' : 'text-blue-800 hover:bg-blue-100'
                 }`}
-                style={{
-                  backgroundColor: activePage === item.name ? 'rgba(0, 0, 0, 0.5)' : 'transparent',
-                  color: 'white'
-                }}
               >
                 <item.icon size={16} />
                 <span>{item.name}</span>
