@@ -32,7 +32,7 @@ const App = () => {
       {renderPage()}
       <footer className="bg-blue-900 text-white p-4 mt-12">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 levɘl health. All rights reserved.</p>
+          <p>&copy; 2024 <span className="font-bold">levɘl</span> health navigation. All rights reserved.</p>
         </div>
       </footer>
     </div>

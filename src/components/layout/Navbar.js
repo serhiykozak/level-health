@@ -4,7 +4,9 @@ import { Heart, Home, Phone, Info, FileText } from 'lucide-react';
 const Navbar = ({ activePage, setActivePage }) => (
   <nav className="bg-blue-900 p-4 text-white">
     <div className="container mx-auto flex flex-wrap justify-between items-center">
-      <div className="text-xl font-bold">levɘl health</div>
+      <div className="text-xl">
+        <span className="font-bold">levɘl</span> health navigation
+      </div>
       <div className="flex space-x-4">
         {[
           { name: 'Home', icon: Home },

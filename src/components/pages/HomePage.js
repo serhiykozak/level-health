@@ -16,7 +16,7 @@ const HomePage = ({ setActivePage }) => {
 
   const testimonials = [
     {
-      text: "levɘl health transformed our healthcare journey. Their expertise and dedication made all the difference.",
+      text: "<span className='font-bold'>levɘl</span> health navigation transformed our healthcare journey. Their expertise and dedication made all the difference.",
       author: "Sarah M., Family Caregiver"
     },
     {
@@ -255,7 +255,10 @@ const HomePage = ({ setActivePage }) => {
                     <Star className="w-8 h-8 text-yellow-400 mx-1" fill="currentColor" />
                     <Star className="w-8 h-8 text-yellow-400 mx-1" fill="currentColor" />
                   </div>
-                  <p className="text-xl text-center mb-6 italic text-gray-700">{testimonial.text}</p>
+                  <p 
+                    className="text-xl text-center mb-6 italic text-gray-700"
+                    dangerouslySetInnerHTML={{ __html: testimonial.text }}
+                  />
                   <p className="text-center font-semibold text-blue-600">{testimonial.author}</p>
                 </div>
               </div>
@@ -264,7 +267,7 @@ const HomePage = ({ setActivePage }) => {
         </div>
 
         <div className="bg-gradient-to-br from-blue-50 to-white p-12 rounded-2xl shadow-lg mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose levɘl health?</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose <span className="font-bold">levɘl</span> health navigation?</h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="transform transition-all duration-300 hover:scale-105">
               <h3 className="text-2xl font-semibold mb-6 text-blue-800">Common Healthcare Challenges We Address:</h3>
