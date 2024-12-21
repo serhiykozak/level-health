@@ -164,19 +164,42 @@ const ProcessPage = ({ setActivePage }) => {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-blue-50 p-12 rounded-2xl shadow-sm text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Ready to Start Your Journey?</h2>
-        <p className="text-xl mb-8 text-blue-800">
-          Contact us today to learn more about how we can support your healthcare journey.
-        </p>
+      <div className="bg-blue-50 shadow-sm w-full">
+        <div className="max-w-3xl mx-auto p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Ready to Start Your Journey?</h2>
+          <p className="text-xl mb-8 text-blue-800">
+            Contact us today to learn more about how we can support your healthcare journey.
+          </p>
+          <button 
+            onClick={() => {
+              setActivePage('Contact');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+          >
+            Schedule a Consultation
+          </button>
+        </div>
+      </div>
+
+      {/* Next Page Navigation */}
+      <div className="mt-12 flex justify-center">
         <button
           onClick={() => {
-            setActivePage('Contact');
+            setActivePage('Cases');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-lg group transition-all duration-300"
         >
-          Schedule a Consultation
+          View Our Case Studies
+          <svg 
+            className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
         </button>
       </div>
     </div>
