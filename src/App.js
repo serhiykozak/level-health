@@ -687,7 +687,7 @@ const App = () => {
         return <HomePage setActivePage={setActivePage} />;
       case 'Services':
         return <ServicesPage setActivePage={setActivePage} />;
-      case 'Case Studies':
+      case 'Cases':
         return <CaseStudiesPage />;
       case 'About':
         return <AboutPage />;
