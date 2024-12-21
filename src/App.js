@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, Navigation, Phone, Users, Home, Mail, Info, FileText, CheckCircle, Shield, Target, Stethoscope, Star } from 'lucide-react';
 
-// backgroundImage: "url('https://images.unsplash.com/photo-1580281658629-1c4f6f3f9b7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')",
-// backgroundImage: "url('https://img.freepik.com/free-vector/healthcare-medical-blue-background-banner_1017-20041.jpg?t=st=1734744859~exp=1734748459~hmac=372a5697079a0c7e1004fd2cbd863fc73ff96baf634e14a92898287c2d311e57&w=1800')",
-
 const Navbar = ({ activePage, setActivePage }) => (
-  <nav className="bg-blue-600 p-4 text-white">
+  <nav className="bg-blue-900 p-4 text-white">
+    
     <div className="container mx-auto flex flex-wrap justify-between items-center">
       <div className="text-xl font-bold">Level Health</div>
       <div className="flex space-x-4">
@@ -36,7 +34,7 @@ const Navbar = ({ activePage, setActivePage }) => (
   </nav>
 );
 
-const HomePage = () => {
+const HomePage = ({ setActivePage }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [stats] = useState([
@@ -88,7 +86,10 @@ const HomePage = () => {
             <p className="text-xl mb-8">
               Expert health advocacy and care navigation services tailored to your needs
             </p>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg hover:bg-blue-700 transition-colors">
+            <button 
+              className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg hover:bg-blue-700 transition-colors"
+              onClick={() => setActivePage('Contact')}
+            >
               Get Started Today
             </button>
           </div>
@@ -681,7 +682,7 @@ const App = () => {
   const renderPage = () => {
     switch (activePage) {
       case 'Home':
-        return <HomePage />;
+        return <HomePage setActivePage={setActivePage} />;
       case 'Services':
         return <ServicesPage setActivePage={setActivePage} />;
       case 'Case Studies':
@@ -691,7 +692,7 @@ const App = () => {
       case 'Contact':
         return <ContactPage />;
       default:
-        return <HomePage />;
+        return <HomePage setActivePage={setActivePage} />;
     }
   };
 
