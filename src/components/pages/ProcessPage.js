@@ -186,8 +186,8 @@ const ProcessPage = ({ setActivePage }) => {
       <div className="mt-12 flex justify-center">
         <button
           onClick={() => {
-            setActivePage('Cases');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => setActivePage('Cases'), 100);
           }}
           className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-lg group transition-all duration-300"
         >

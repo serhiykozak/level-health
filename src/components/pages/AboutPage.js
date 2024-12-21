@@ -267,11 +267,11 @@ const AboutPage = ({ setActivePage }) => (
     </div>
 
     {/* Next Page Navigation */}
-    <div className="text-center mt-12">
+    <div className="mt-12 flex justify-center">
       <button
         onClick={() => {
-          setActivePage('Services');
           window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => setActivePage('Services'), 100);
         }}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-lg group transition-all duration-300"
       >
