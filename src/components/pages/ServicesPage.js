@@ -368,9 +368,9 @@ const ServicesPage = ({ setActivePage }) => {
   return (
     <div className="container mx-auto px-4 py-12 bg-white min-h-screen">
       {/* Header */}
-      <div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-900">Our Services</h1>
-        <p className="text-blue-800 text-lg">
+      <div className="text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Our Services</h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Comprehensive healthcare navigation and advocacy services tailored to your unique needs.
         </p>
       </div>

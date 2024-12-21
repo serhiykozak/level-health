@@ -131,7 +131,10 @@ const CaseStudiesPage = ({ setActivePage }) => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-8">Real Client Case Studies</h2>
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900 text-center">Real Client Case Studies</h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
+        Explore how we've helped clients navigate complex healthcare challenges with personalized solutions and dedicated support.
+      </p>
       <div className="space-y-8">
         {caseStudies.map((study, index) => (
           <div 
