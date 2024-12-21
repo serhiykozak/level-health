@@ -4,10 +4,10 @@ import { Heart, Home, Phone, Info, FileText, Navigation } from 'lucide-react';
 const Navbar = ({ activePage, setActivePage }) => {
   const menuItems = [
     { name: 'Home', icon: Home },
-    { name: 'Services', icon: Heart },
-    { name: 'Cases', icon: FileText },
     { name: 'About', icon: Info },
+    { name: 'Services', icon: Heart },
     { name: 'Process', icon: Navigation },
+    { name: 'Cases', icon: FileText },
     { name: 'Contact', icon: Phone }
   ];
 
