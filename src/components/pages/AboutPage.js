@@ -20,9 +20,14 @@ const AboutPage = () => (
           </div>
           <h2 className="text-2xl font-bold text-blue-900">Adriana Escobedo</h2>
           <div className="flex flex-wrap justify-center gap-2 mt-4">
-            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">BS</span>
+            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">BS Biochemistry</span>
             <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">BSN</span>
             <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">RN</span>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2 mt-2">
+            <span className="text-sm text-gray-600">UCLA</span>
+            <span className="text-sm text-gray-600">•</span>
+            <span className="text-sm text-gray-600">George Mason University</span>
           </div>
         </div>
         <div className="md:w-2/3 p-8">
@@ -52,20 +57,42 @@ const AboutPage = () => (
           <GraduationCap className="w-8 h-8 mr-3 text-blue-600" />
           Education & Certifications
         </h3>
-        <ul className="space-y-4">
-          {[
-            "Bachelor of Science in Nursing (BSN)",
-            "Registered Nurse (RN) License",
-            "Healthcare Navigation Certification",
-            "Case Management Certification",
-            "Mental Health First Aid Certification"
-          ].map((item, index) => (
-            <li key={index} className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="space-y-8">
+          <div className="border-l-4 border-blue-600 pl-4">
+            <div className="flex items-start">
+              <div>
+                <h4 className="text-lg font-semibold">UCLA</h4>
+                <p className="text-gray-600">Bachelor of Science (BS), Biochemistry</p>
+                <p className="text-sm text-gray-500">2011</p>
+              </div>
+            </div>
+          </div>
+          <div className="border-l-4 border-blue-600 pl-4">
+            <div className="flex items-start">
+              <div>
+                <h4 className="text-lg font-semibold">George Mason University</h4>
+                <p className="text-gray-600">Bachelor of Science in Nursing (BSN)</p>
+                <p className="text-gray-600">Registered Nursing/Registered Nurse</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8">
+            <h4 className="text-lg font-semibold mb-4 text-blue-900">Professional Certifications</h4>
+            <ul className="space-y-4">
+              {[
+                "Registered Nurse (RN) License",
+                "Healthcare Navigation Certification",
+                "Case Management Certification",
+                "Mental Health First Aid Certification"
+              ].map((item, index) => (
+                <li key={index} className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
       <div className="bg-white p-8 rounded-xl shadow-lg">
         <h3 className="text-2xl font-semibold mb-6 text-blue-900 flex items-center">
