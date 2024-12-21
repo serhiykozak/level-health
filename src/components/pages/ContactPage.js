@@ -4,7 +4,12 @@ import { Mail, Phone } from 'lucide-react';
 const ContactPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Contact Us</h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Let us help you navigate your healthcare journey with confidence.
+        </p>
+      </div>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
