@@ -88,7 +88,10 @@ const HomePage = ({ setActivePage }) => {
               </button>
               <button 
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
-                onClick={() => setActivePage('Services')}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  setTimeout(() => setActivePage('Services'), 100);
+                }}
               >
                 View Our Services
               </button>
@@ -194,8 +197,8 @@ const HomePage = ({ setActivePage }) => {
           <div className="text-center mt-8">
             <button
               onClick={() => {
-                setActivePage('Services');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => setActivePage('Services'), 100);
               }}
               className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-lg group transition-all duration-300"
             >
@@ -262,8 +265,8 @@ const HomePage = ({ setActivePage }) => {
           <div className="text-center mt-8">
             <button
               onClick={() => {
-                setActivePage('Process');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => setActivePage('Process'), 100);
               }}
               className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-lg group transition-all duration-300"
             >
@@ -383,7 +386,10 @@ const HomePage = ({ setActivePage }) => {
             </button>
             <button 
               className="bg-transparent border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
-              onClick={() => setActivePage('Cases')}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => setActivePage('Cases'), 100);
+              }}
             >
               View Case Studies
             </button>
