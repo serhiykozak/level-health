@@ -295,7 +295,7 @@ const ServicesPage = ({ setActivePage }) => {
     records: 50,
     insurance: 10,
     coordination: 40,
-    support: 80,
+    support: 5,
     coaching: 60
   };
 
