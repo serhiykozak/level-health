@@ -203,8 +203,27 @@ const CaseStudiesPage = ({ setActivePage }) => {
         ))}
       </div>
 
+      {/* Call to Action */}
+      <div className="bg-blue-50 shadow-sm w-full mt-16">
+        <div className="max-w-3xl mx-auto p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Ready to Start Your Journey?</h2>
+          <p className="text-xl mb-8 text-blue-800">
+            Contact us today to learn more about how we can support your healthcare journey.
+          </p>
+          <button 
+            onClick={() => {
+              setActivePage('Contact');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+          >
+            Schedule a Consultation
+          </button>
+        </div>
+      </div>
+
       {/* Next Page Navigation */}
-      <div className="text-center mt-16">
+      <div className="text-center mt-12">
         <button
           onClick={() => {
             setActivePage('Contact');
