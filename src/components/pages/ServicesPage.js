@@ -345,9 +345,12 @@ const ServicesPage = ({ setActivePage }) => {
       transform: 'translate(-50%, -50%)',
       borderRadius: '9999px',
       backgroundColor: color,
-      zIndex: zIndices[id] || 10,
+      zIndex: hoveredCircle === id ? 100 : zIndices[id] || 10,
       cursor: 'pointer',
-      transition: 'transform 0.3s'
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      boxShadow: hoveredCircle === id 
+        ? '0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
+        : 'none'
     };
   };
 
@@ -388,7 +391,7 @@ const ServicesPage = ({ setActivePage }) => {
                 onMouseEnter={() => setHoveredCircle(item.id)}
                 onMouseLeave={() => setHoveredCircle(null)}
                 onClick={() => scrollToService(item.id)}
-                className="hover:scale-105 flex items-center justify-center"
+                className="hover:scale-125 flex items-center justify-center"
               >
                 {/* Text inside */}
                 <div style={circleTextStyle}>
