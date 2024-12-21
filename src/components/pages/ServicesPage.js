@@ -576,27 +576,22 @@ const ServicesPage = ({ setActivePage }) => {
         </div>
 
         {/* Process Navigation */}
-        <div className="flex justify-center">
+        <div className="mt-12 flex justify-center">
           <button
             onClick={() => {
               setActivePage('Process');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="inline-flex items-center text-blue-800 hover:text-blue-900 font-semibold text-lg group transition-all duration-300"
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-lg group transition-all duration-300"
           >
             Learn About Our Process
-            <svg
-              className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
-              fill="none"
-              stroke="currentColor"
+            <svg 
+              className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" 
+              fill="none" 
+              stroke="currentColor" 
               viewBox="0 0 24 24"
             >
-              <path 
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3" 
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </button>
         </div>
