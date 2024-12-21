@@ -661,7 +661,7 @@ const ContactPage = () => (
         <div className="space-y-4">
           <div className="flex items-center">
             <Mail className="w-6 h-6 mr-2 text-blue-600" />
-            <span>adri.escobedo22@gmail.com</span>
+            <span>xxx.xxxxxxx@gmail.com</span>
           </div>
           <div className="flex items-center">
             <Phone className="w-6 h-6 mr-2 text-blue-600" />
