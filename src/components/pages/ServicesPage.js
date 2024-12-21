@@ -368,7 +368,7 @@ const ServicesPage = ({ setActivePage }) => {
   return (
     <div className="container mx-auto px-4 py-12 bg-white min-h-screen">
       {/* Header */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-8">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Our Services</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Comprehensive healthcare navigation and advocacy services tailored to your unique needs.
@@ -378,7 +378,7 @@ const ServicesPage = ({ setActivePage }) => {
       {/* The container that we measure */}
       <div 
         ref={containerRef} 
-        className="relative w-full min-h-[600px] mt-8 overflow-visible bg-gray-50"
+        className="relative w-full min-h-[400px] md:min-h-[600px] mt-4 mb-4 overflow-visible bg-gray-50"
       >
         {
           circleMenuItems.map((item) => {
