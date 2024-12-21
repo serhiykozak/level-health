@@ -37,6 +37,12 @@ error() {
 # repo_name="level-health"
 # git_email="serhiy.kozak@gmail.com"
 
+# # Set git configuration
+# echo "Setting git configuration..."
+# git config --global user.name "$github_username"
+# git config --global user.email "$git_email"
+
+
 # # Remove the repository creation steps since it exists
 # echo "Creating React app..."
 # npx create-react-app "$repo_name"
