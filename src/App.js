@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Heart, Navigation, Book, Phone, Users, Home, Mail, Info, FileText, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Heart, Navigation, Phone, Users, Home, Mail, Info, FileText, CheckCircle, Shield, Target, Stethoscope } from 'lucide-react';
 
 const Navbar = ({ activePage, setActivePage }) => (
   <nav className="bg-blue-900 p-4 text-white">
@@ -29,154 +29,433 @@ const Navbar = ({ activePage, setActivePage }) => (
   </nav>
 );
 
-const HomePage = () => (
-  <div className="container mx-auto px-4 py-8">
-    <div className="text-center mb-12">
-      <h1 className="text-4xl font-bold mb-4">Welcome to Level Health</h1>
-      <p className="text-xl text-gray-600">Expert Health Advocacy & Care Navigation Services</p>
-    </div>
-    
-    <div className="grid md:grid-cols-3 gap-8 mb-12">
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <Navigation className="w-12 h-12 text-blue-600 mb-4" />
-        <h3 className="text-xl font-semibold mb-2">Holistic Approach</h3>
-        <p>Merging advocacy, nursing, social work, and life coaching for comprehensive care.</p>
+const HomePage = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [stats] = useState([
+    { label: "Years Experience", value: 15, suffix: "+" },
+    { label: "Clients Served", value: 500, suffix: "+" },
+    { label: "Success Rate", value: 98, suffix: "%" },
+    { label: "Healthcare Partners", value: 75, suffix: "+" }
+  ]);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className={`text-center mb-12 transition-all duration-1000 transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}>
+        <h1 className="text-4xl font-bold mb-4">Welcome to Level Health</h1>
+        <p className="text-xl text-gray-600">Expert Health Advocacy & Care Navigation Services</p>
+      </div>
+
+      <div className="grid md:grid-cols-4 gap-8 mb-12">
+        {stats.map((stat, index) => (
+          <div
+            key={index}
+            className={`bg-white p-6 rounded-lg shadow-lg text-center transform transition-all duration-500 delay-${index * 200}`}
+          >
+            <div className="text-3xl font-bold text-blue-600 mb-2">
+              {stat.value}{stat.suffix}
+            </div>
+            <div className="text-gray-600">{stat.label}</div>
+          </div>
+        ))}
       </div>
       
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <Heart className="w-12 h-12 text-blue-600 mb-4" />
-        <h3 className="text-xl font-semibold mb-2">Client-Centered Care</h3>
-        <p>Working directly for you, not insurance companies or hospitals.</p>
-      </div>
-      
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <Users className="w-12 h-12 text-blue-600 mb-4" />
-        <h3 className="text-xl font-semibold mb-2">Family Support</h3>
-        <p>Supporting both clients and their families throughout the healthcare journey.</p>
-      </div>
-    </div>
-
-    <div className="bg-blue-50 p-8 rounded-lg shadow-lg mb-12">
-      <h2 className="text-2xl font-bold mb-4">Why Choose Level Health?</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Common Healthcare Challenges We Address:</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Low healthcare literacy and system navigation</li>
-            <li>Overwhelming and confusing healthcare processes</li>
-            <li>Incomplete assessments and unmet needs</li>
-            <li>Inadequate support for clients and families</li>
-            <li>Complex insurance and benefits navigation</li>
-          </ul>
+      <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <Navigation className="w-12 h-12 text-blue-600 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Holistic Approach</h3>
+          <p>Merging advocacy, nursing, social work, and life coaching for comprehensive care.</p>
         </div>
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Our Solutions:</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Comprehensive clinical assessments</li>
-            <li>Streamlined care navigation and coordination</li>
-            <li>Insurance benefits and appeals management</li>
-            <li>Educational resources and informed decision support</li>
-            <li>Worldwide service availability</li>
-          </ul>
+        
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <Heart className="w-12 h-12 text-blue-600 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Client-Centered Care</h3>
+          <p>Working directly for you, not insurance companies or hospitals.</p>
+        </div>
+        
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <Users className="w-12 h-12 text-blue-600 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Family Support</h3>
+          <p>Supporting both clients and their families throughout the healthcare journey.</p>
         </div>
       </div>
-    </div>
-  </div>
-);
 
-const ServicesPage = () => (
-  <div className="container mx-auto px-4 py-8">
-    <h2 className="text-3xl font-bold mb-8">Our Comprehensive Services</h2>
-    <div className="grid md:grid-cols-2 gap-8">
-      {[
-        {
-          title: "Clinical Assessment & Care Planning",
-          description: "Thorough evaluation of medical needs and development of comprehensive care plans."
-        },
-        {
-          title: "Medical Record Review & Management",
-          description: "Detailed analysis of medical records to ensure comprehensive care coordination."
-        },
-        {
-          title: "Insurance Navigation",
-          description: "Expert guidance through benefits, authorizations, and appeals processes."
-        },
-        {
-          title: "Provider Coordination",
-          description: "Seamless communication and coordination between all healthcare providers."
-        },
-        {
-          title: "Medication & Treatment Management",
-          description: "Oversight of treatment plans and medication regimens."
-        },
-        {
-          title: "Family Support & Education",
-          description: "Resources and guidance for families and caregivers."
-        },
-        {
-          title: "Life Coaching",
-          description: "Support for time management, organization, and wellness goals."
-        },
-        {
-          title: "End of Life Care Navigation",
-          description: "Compassionate guidance through end-of-life care decisions and planning."
-        }
-      ].map((service, index) => (
-        <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-          <p className="text-gray-600">{service.description}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const CaseStudiesPage = () => (
-  <div className="container mx-auto px-4 py-8">
-    <h2 className="text-3xl font-bold mb-8">Real Client Case Studies</h2>
-    <div className="space-y-8">
-      {[
-        {
-          title: "Adolescent Mental Health Support",
-          description: "14-year-old with anxiety and school refusal. Provided comprehensive care coordination, IEP development, and family support.",
-          services: ["Medical record review", "School coordination", "Treatment management", "Family support"]
-        },
-        {
-          title: "Elder Care Management",
-          description: "72-year-old with neurocognitive degeneration. Focused on safety, nutrition, and comprehensive care coordination.",
-          services: ["Clinical assessment", "Safety planning", "Nutrition management", "End of life care"]
-        },
-        {
-          title: "Adult Mental Health & Life Coaching",
-          description: "69-year-old with ADD and complex trauma. Provided organization skills, time management, and family mediation.",
-          services: ["Life coaching", "Family mediation", "Treatment coordination", "Emotional support"]
-        },
-        {
-          title: "Complex Medical Case Management",
-          description: "19-year-old with multiple medical conditions requiring extensive care coordination and advocacy.",
-          services: ["Medical coordination", "Treatment management", "Family support", "Provider communication"]
-        },
-        {
-          title: "International Care Coordination",
-          description: "73-year-old requiring coordination between international healthcare systems and providers.",
-          services: ["International care navigation", "Treatment management", "Family education", "Provider communication"]
-        }
-      ].map((study, index) => (
-        <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
-          <p className="text-gray-600 mb-4">{study.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {study.services.map((service, i) => (
-              <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                {service}
-              </span>
-            ))}
+      <div className="bg-blue-50 p-8 rounded-lg shadow-lg mb-12">
+        <h2 className="text-2xl font-bold mb-4">Why Choose Level Health?</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Common Healthcare Challenges We Address:</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Low healthcare literacy and system navigation</li>
+              <li>Overwhelming and confusing healthcare processes</li>
+              <li>Incomplete assessments and unmet needs</li>
+              <li>Inadequate support for clients and families</li>
+              <li>Complex insurance and benefits navigation</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Our Solutions:</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Comprehensive clinical assessments</li>
+              <li>Streamlined care navigation and coordination</li>
+              <li>Insurance benefits and appeals management</li>
+              <li>Educational resources and informed decision support</li>
+              <li>Worldwide service availability</li>
+            </ul>
           </div>
         </div>
-      ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+const ServicesPage = () => {
+  const [hoveredService, setHoveredService] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', label: 'All Services' },
+    { id: 'clinical', label: 'Clinical Services' },
+    { id: 'support', label: 'Support Services' },
+    { id: 'navigation', label: 'Navigation Services' }
+  ];
+
+  const services = [
+    {
+      title: "Clinical Assessment & Care Planning",
+      description: "Thorough evaluation of medical needs and development of comprehensive care plans.",
+      category: "clinical",
+      icon: <Stethoscope className="w-12 h-12 text-blue-600 mb-4" />,
+      details: [
+        "Initial health assessment",
+        "Care plan development",
+        "Regular progress monitoring",
+        "Health goal setting"
+      ]
+    },
+    {
+      title: "Medical Record Review & Management",
+      description: "Detailed analysis of medical records to ensure comprehensive care coordination.",
+      category: "clinical",
+      icon: <FileText className="w-12 h-12 text-blue-600 mb-4" />,
+      details: [
+        "Document organization",
+        "History analysis",
+        "Treatment tracking",
+        "Record maintenance"
+      ]
+    },
+    {
+      title: "Insurance Navigation",
+      description: "Expert guidance through benefits, authorizations, and appeals processes.",
+      category: "navigation",
+      icon: <Shield className="w-12 h-12 text-blue-600 mb-4" />,
+      details: [
+        "Benefits verification",
+        "Claims assistance",
+        "Appeals support",
+        "Coverage optimization"
+      ]
+    },
+    {
+      title: "Provider Coordination",
+      description: "Seamless communication and coordination between all healthcare providers.",
+      category: "navigation",
+      icon: <Users className="w-12 h-12 text-blue-600 mb-4" />,
+      details: [
+        "Provider communication",
+        "Appointment scheduling",
+        "Treatment coordination",
+        "Care team meetings"
+      ]
+    },
+    {
+      title: "Family Support & Education",
+      description: "Resources and guidance for families and caregivers.",
+      category: "support",
+      icon: <Heart className="w-12 h-12 text-blue-600 mb-4" />,
+      details: [
+        "Family counseling",
+        "Resource provision",
+        "Education sessions",
+        "Support group access"
+      ]
+    },
+    {
+      title: "Life Coaching",
+      description: "Support for time management, organization, and wellness goals.",
+      category: "support",
+      icon: <Target className="w-12 h-12 text-blue-600 mb-4" />,
+      details: [
+        "Goal setting",
+        "Progress tracking",
+        "Lifestyle planning",
+        "Wellness strategies"
+      ]
+    }
+  ];
+
+  const filteredServices = selectedCategory === 'all' 
+    ? services 
+    : services.filter(service => service.category === selectedCategory);
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h2 className="text-3xl font-bold mb-8">Our Comprehensive Services</h2>
+
+      <div className="mb-8">
+        <div className="flex flex-wrap gap-4 justify-center">
+          {categories.map(category => (
+            <button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                selectedCategory === category.id
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {filteredServices.map((service, index) => (
+          <div
+            key={index}
+            className={`bg-white p-6 rounded-lg shadow-lg transform transition-all duration-300 ${
+              hoveredService === index ? 'scale-105' : ''
+            }`}
+            onMouseEnter={() => setHoveredService(index)}
+            onMouseLeave={() => setHoveredService(null)}
+          >
+            {service.icon}
+            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+            <p className="text-gray-600 mb-4">{service.description}</p>
+            
+            <div className={`transition-all duration-300 ${
+              hoveredService === index ? 'opacity-100 max-h-48' : 'opacity-0 max-h-0'
+            } overflow-hidden`}>
+              <ul className="list-disc list-inside space-y-1 text-gray-600">
+                {service.details.map((detail, i) => (
+                  <li key={i}>{detail}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const CaseStudiesPage = () => {
+  const [expandedCase, setExpandedCase] = useState(null);
+
+  const caseStudies = [
+    {
+      title: "Adolescent Mental Health Support",
+      description: "14-year-old with anxiety and school refusal. Recent completion of 8-day stay at in-patient psych facility followed by 5 months in partial hospitalization program.",
+      shortServices: ["Medical record review", "School coordination", "Treatment management", "Family support"],
+      expandedDetails: {
+        background: "Family feels they have exhausted all options and are searching for resources and answers without knowing where to look.",
+        challenges: ["Preventing intervention by Child Protective Services", "School refusal", "Anxiety management"],
+        servicesProvided: [
+          "Comprehensive review of medical & school records",
+          "Clinical assessment & findings",
+          "Coordinating care and services including insurance benefit navigation",
+          "Medication & Treatment Management",
+          "Communication with providers",
+          "Scheduling/attending appointments",
+          "Literature review",
+          "Client Education",
+          "Collaboration with school district in formulating IEP",
+          "Emotional support & coping strategies for client and family members"
+        ]
+      }
+    },
+    {
+      title: "Elder Care Management",
+      description: "72-year-old with neurocognitive degeneration, decreased appetite, malnutrition, and loss of speech.",
+      shortServices: ["Clinical assessment", "Safety planning", "Nutrition management", "End of life care"],
+      expandedDetails: {
+        background: "Client requires comprehensive care coordination due to complex medical conditions and declining cognitive function.",
+        challenges: [
+          "Overwhelmed by complex diagnoses and care coordination",
+          "Safety concerns and accident prevention",
+          "Improving appetite and nutrition status"
+        ],
+        servicesProvided: [
+          "Comprehensive Review of Medical Records",
+          "Clinical Assessment & Findings",
+          "Coordinating Care and Services",
+          "Medication & Treatment Management",
+          "Communication with Providers",
+          "Attending Appointments",
+          "Literature Review",
+          "Client Education",
+          "Emotional support & coping strategies",
+          "Therapeutic communication",
+          "End of Life Care Navigation"
+        ]
+      }
+    },
+    {
+      title: "Adult Mental Health & Life Coaching",
+      description: "69-year-old with attention deficit disorder (ADD), complex trauma, and former substance use. Recent death of mother and subsequent falling out with siblings over estate division.",
+      shortServices: ["Life coaching", "Family mediation", "Treatment coordination", "Emotional support"],
+      expandedDetails: {
+        background: "Client seeking support for organization, time management, and family conflict resolution.",
+        challenges: [
+          "Time management difficulties",
+          "Organization challenges",
+          "Family conflict over estate",
+          "Complex trauma management"
+        ],
+        servicesProvided: [
+          "Life Coaching for time management and organization",
+          "Comprehensive review of medical records",
+          "Clinical assessment & findings",
+          "Coordinating care and services",
+          "Medication & Treatment Management",
+          "Literature review",
+          "Client Education",
+          "Emotional support & coping strategies",
+          "Therapeutic communication",
+          "Consulting for remediation with siblings"
+        ]
+      }
+    },
+    {
+      title: "Complex Medical Case Management",
+      description: "19-year-old with cerebral palsy, epilepsy, severe cognitive dysfunction, wheelchair bound, unable to speak and requires feeding tube.",
+      shortServices: ["Medical coordination", "Treatment management", "Family support", "Provider communication"],
+      expandedDetails: {
+        background: "Multiple orthopedic surgeries, chronic urinary tract infection, impaired upper airway clearance & chronic respiratory infections with frequent hospitalizations.",
+        challenges: [
+          "Complex medical needs requiring coordination",
+          "Multiple chronic conditions",
+          "Frequent hospitalizations",
+          "Communication challenges"
+        ],
+        servicesProvided: [
+          "Direct care coordination",
+          "Comprehensive medical record review",
+          "Clinical assessment & findings",
+          "Treatment Management",
+          "Medication Management",
+          "Literature review",
+          "Client Education",
+          "Emotional support & coping strategies",
+          "Therapeutic communication"
+        ]
+      }
+    },
+    {
+      title: "International Care Coordination",
+      description: "73-year-old requiring coordination between international healthcare systems and providers.",
+      shortServices: ["International care navigation", "Treatment management", "Family education", "Provider communication"],
+      expandedDetails: {
+        background: "Client suffered injury while sleeping abroad, complicated by use of sleep aid Ambien and excessive alcohol use.",
+        challenges: [
+          "Overwhelmed by navigating healthcare system",
+          "Inadequate understanding of hospitalization processes",
+          "Treatment nonadherence",
+          "International care coordination"
+        ],
+        servicesProvided: [
+          "Traveling to be with patient during hospitalization",
+          "Comprehensive review of medical records",
+          "Clinical assessment & findings",
+          "Navigation of care and services",
+          "Medication & treatment management",
+          "Literature review",
+          "Client & family education",
+          "Emotional support & coping strategies",
+          "Therapeutic communication"
+        ]
+      }
+    }
+  ];
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h2 className="text-3xl font-bold mb-8">Real Client Case Studies</h2>
+      <div className="space-y-8">
+        {caseStudies.map((study, index) => (
+          <div 
+            key={index} 
+            className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-in-out ${
+              expandedCase === index ? 'ring-2 ring-blue-500' : ''
+            }`}
+          >
+            <div 
+              className="p-6 cursor-pointer hover:bg-blue-50 transition-colors"
+              onClick={() => setExpandedCase(expandedCase === index ? null : index)}
+            >
+              <div className="flex justify-between items-center">
+                <h3 className="text-xl font-semibold">{study.title}</h3>
+                <button 
+                  className={`text-blue-600 transform transition-transform duration-200 ${
+                    expandedCase === index ? 'rotate-180' : ''
+                  }`}
+                >
+                  ▼
+                </button>
+              </div>
+              <p className="text-gray-600 mt-2">{study.description}</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {study.shortServices.map((service, i) => (
+                  <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    {service}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div 
+              className={`border-t transition-all duration-500 ease-in-out overflow-hidden ${
+                expandedCase === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="p-6 bg-blue-50">
+                <div className="mb-4">
+                  <h4 className="font-semibold text-lg mb-2">Background</h4>
+                  <p className="text-gray-700">{study.expandedDetails.background}</p>
+                </div>
+                
+                <div className="mb-4">
+                  <h4 className="font-semibold text-lg mb-2">Key Challenges</h4>
+                  <ul className="list-disc list-inside space-y-1">
+                    {study.expandedDetails.challenges.map((challenge, i) => (
+                      <li key={i} className="text-gray-700">{challenge}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">Services Provided</h4>
+                  <ul className="list-disc list-inside space-y-1">
+                    {study.expandedDetails.servicesProvided.map((service, i) => (
+                      <li key={i} className="text-gray-700">{service}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const AboutPage = () => (
   <div className="container mx-auto px-4 py-8">
@@ -304,4 +583,3 @@ const App = () => {
 };
 
 export default App;
-
