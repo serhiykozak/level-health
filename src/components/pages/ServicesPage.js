@@ -290,12 +290,12 @@ const ServicesPage = ({ setActivePage }) => {
 
   // For layering (z-index)
   const zIndices = {
-    center: 70,
-    clinical: 10,
-    records: 20,
-    insurance: 30,
+    center: 100,
+    clinical: 70,
+    records: 50,
+    insurance: 90,
     coordination: 40,
-    support: 50,
+    support: 80,
     coaching: 60
   };
 
