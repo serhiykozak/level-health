@@ -98,12 +98,22 @@ const ServicesPage = ({ setActivePage }) => {
     : services.filter(service => service.category === selectedCategory);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className={`text-center mb-12 transition-all duration-1000 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
-        <h2 className="text-3xl font-bold mb-4">Our Comprehensive Services</h2>
-        <p className="text-xl text-gray-600">Tailored healthcare solutions for every need</p>
+    <div className="container mx-auto px-4 py-12">
+      {/* Hero Section */}
+      <div className="text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Our Services</h1>
+        <div className="max-w-4xl mx-auto">
+          <div className="relative h-[400px] mb-8">
+            <img 
+              src={`${process.env.PUBLIC_URL}/images/services.png`}
+              alt="Healthcare Services" 
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
+          <p className="text-xl text-gray-600">
+            Comprehensive healthcare navigation and advocacy services tailored to your unique needs.
+          </p>
+        </div>
       </div>
 
       <div className="mb-12">
