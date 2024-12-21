@@ -130,27 +130,29 @@ const CaseStudiesPage = ({ setActivePage }) => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900 text-center">Real Client Case Studies</h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
-        Explore how we've helped clients navigate complex healthcare challenges with personalized solutions and dedicated support.
-      </p>
+    <div className="container mx-auto px-4 py-12">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Real Client Case Studies</h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Explore how we've helped clients navigate complex healthcare challenges with personalized solutions and dedicated support.
+        </p>
+      </div>
       <div className="space-y-8">
         {caseStudies.map((study, index) => (
           <div 
             key={index} 
-            className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 ease-in-out ${
+            className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl ${
               expandedCase === index ? 'ring-2 ring-blue-500' : ''
             }`}
           >
             <div 
-              className="p-6 cursor-pointer hover:bg-blue-50 transition-colors"
+              className="p-8 cursor-pointer hover:bg-blue-50 transition-colors duration-300"
               onClick={() => setExpandedCase(expandedCase === index ? null : index)}
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-xl font-semibold">{study.title}</h3>
+                <h3 className="text-xl font-semibold text-blue-900">{study.title}</h3>
                 <button 
-                  className={`text-blue-600 transform transition-transform duration-200 ${
+                  className={`text-blue-600 transform transition-transform duration-300 ${
                     expandedCase === index ? 'rotate-180' : ''
                   }`}
                 >
@@ -166,21 +168,21 @@ const CaseStudiesPage = ({ setActivePage }) => {
                 ))}
               </div>
             </div>
-            
+
             <div 
-              className={`border-t transition-all duration-500 ease-in-out overflow-hidden ${
+              className={`border-t transition-all duration-300 overflow-hidden ${
                 expandedCase === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="p-6 bg-blue-50">
-                <div className="mb-4">
-                  <h4 className="font-semibold text-lg mb-2">Background</h4>
+              <div className="p-8 bg-blue-50">
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-blue-900 mb-3">Background</h4>
                   <p className="text-gray-700">{study.expandedDetails.background}</p>
                 </div>
                 
-                <div className="mb-4">
-                  <h4 className="font-semibold text-lg mb-2">Key Challenges</h4>
-                  <ul className="list-disc list-inside space-y-1">
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-blue-900 mb-3">Key Challenges</h4>
+                  <ul className="list-disc list-inside space-y-2">
                     {study.expandedDetails.challenges.map((challenge, i) => (
                       <li key={i} className="text-gray-700">{challenge}</li>
                     ))}
@@ -188,8 +190,8 @@ const CaseStudiesPage = ({ setActivePage }) => {
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-lg mb-2">Services Provided</h4>
-                  <ul className="list-disc list-inside space-y-1">
+                  <h4 className="text-lg font-semibold text-blue-900 mb-3">Services Provided</h4>
+                  <ul className="list-disc list-inside space-y-2">
                     {study.expandedDetails.servicesProvided.map((service, i) => (
                       <li key={i} className="text-gray-700">{service}</li>
                     ))}
@@ -202,7 +204,7 @@ const CaseStudiesPage = ({ setActivePage }) => {
       </div>
 
       {/* Next Page Navigation */}
-      <div className="text-center mt-12">
+      <div className="text-center mt-16">
         <button
           onClick={() => {
             setActivePage('Contact');

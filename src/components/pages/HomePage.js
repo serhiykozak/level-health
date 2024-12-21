@@ -100,8 +100,8 @@ const HomePage = ({ setActivePage }) => {
       <div className="container mx-auto px-4 py-16">
         {/* Mission Statement */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Our Mission</h2>
-          <p className="text-xl text-gray-700 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Our Mission</h2>
+          <p className="text-xl text-gray-600 leading-relaxed">
             To empower individuals and families through their healthcare journey by providing expert advocacy, 
             personalized care navigation, and comprehensive support services that ensure the best possible outcomes.
           </p>
@@ -131,8 +131,10 @@ const HomePage = ({ setActivePage }) => {
         <div className={`text-center mb-16 transition-all duration-1000 transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-4xl font-bold mb-4">Making Healthcare Simple</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Your dedicated partner in health advocacy and care navigation</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Making Healthcare Simple</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Your dedicated partner in health advocacy and care navigation
+          </p>
         </div>
 
         {/* Stats Section with Animation */}
@@ -174,7 +176,10 @@ const HomePage = ({ setActivePage }) => {
 
         {/* Specialties Section */}
         <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Areas of Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900 text-center">Our Areas of Expertise</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
+            Specialized healthcare navigation services across multiple disciplines
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {specialties.map((specialty, index) => (
               <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
@@ -209,7 +214,10 @@ const HomePage = ({ setActivePage }) => {
         
         {/* Process Section */}
         <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Process</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900 text-center">Our Process</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
+            A systematic approach to ensure comprehensive care and support
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               {
@@ -274,7 +282,10 @@ const HomePage = ({ setActivePage }) => {
 
         {/* Testimonials Section */}
         <div className="bg-gradient-to-br from-blue-50 to-white p-12 rounded-2xl shadow-lg mb-16">
-          <h2 className="text-3xl font-bold mb-12 text-center">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900 text-center">What Our Clients Say</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
+            Real experiences from families we've helped navigate their healthcare journey
+          </p>
           <Slider
             dots={true}
             infinite={true}
@@ -308,7 +319,12 @@ const HomePage = ({ setActivePage }) => {
         </div>
 
         <div className="bg-gradient-to-br from-blue-50 to-white p-12 rounded-2xl shadow-lg mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Choose <span className="font-bold">levɘl</span> health navigation?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900 text-center">
+            Why Choose <span className="font-bold">levɘl</span> health navigation?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12">
+            Expert healthcare navigation tailored to your unique needs
+          </p>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="transform transition-all duration-300 hover:scale-105">
               <h3 className="text-2xl font-semibold mb-6 text-blue-800">Common Healthcare Challenges We Address:</h3>
