@@ -24,22 +24,13 @@ const ServicesPage = ({ setActivePage }) => {
 
   const toggleSection = (serviceId) => {
     setExpandedSections((prev) => {
-      // If we're closing the current section, just close it
-      if (prev[serviceId]) {
-        return {
-          ...prev,
-          [serviceId]: false
-        };
-      }
-      
-      // If we're opening a new section, close all others
-      return {
-        [serviceId]: true
+      const newState = {
+        ...prev,
+        [serviceId]: !prev[serviceId],
       };
+      setSelectedCircle(newState[serviceId] ? serviceId : null);
+      return newState;
     });
-    
-    // Update selected circle
-    setSelectedCircle(expandedSections[serviceId] ? null : serviceId);
   };
 
   // Circle data

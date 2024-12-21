@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const CaseStudiesPage = ({ setActivePage }) => {
-  const [expandedCase, setExpandedCase] = useState(null);
+  const [expandedCases, setExpandedCases] = useState({});
 
   const caseStudies = [
     {
@@ -129,6 +129,13 @@ const CaseStudiesPage = ({ setActivePage }) => {
     }
   ];
 
+  const toggleCase = (index) => {
+    setExpandedCases(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-16">
@@ -142,18 +149,18 @@ const CaseStudiesPage = ({ setActivePage }) => {
           <div 
             key={index} 
             className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl ${
-              expandedCase === index ? 'ring-2 ring-blue-500' : ''
+              expandedCases[index] ? 'ring-2 ring-blue-500' : ''
             }`}
           >
             <div 
               className="p-8 cursor-pointer hover:bg-blue-50 transition-colors duration-300"
-              onClick={() => setExpandedCase(expandedCase === index ? null : index)}
+              onClick={() => toggleCase(index)}
             >
               <div className="flex justify-between items-center">
                 <h3 className="text-xl font-semibold text-blue-900">{study.title}</h3>
                 <button 
                   className={`text-blue-600 transform transition-transform duration-300 ${
-                    expandedCase === index ? 'rotate-180' : ''
+                    expandedCases[index] ? 'rotate-180' : ''
                   }`}
                 >
                   ▼
@@ -171,7 +178,7 @@ const CaseStudiesPage = ({ setActivePage }) => {
 
             <div 
               className={`border-t transition-all duration-300 overflow-hidden ${
-                expandedCase === index ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                expandedCases[index] ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
               <div className="p-8 bg-blue-50">
