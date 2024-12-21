@@ -5,6 +5,7 @@ import ServicesPage from './components/pages/ServicesPage';
 import CaseStudiesPage from './components/pages/CaseStudiesPage';
 import AboutPage from './components/pages/AboutPage';
 import ContactPage from './components/pages/ContactPage';
+import ProcessPage from './components/pages/ProcessPage';
 
 const App = () => {
   const [activePage, setActivePage] = useState('Home');
@@ -21,6 +22,8 @@ const App = () => {
         return <AboutPage />;
       case 'Contact':
         return <ContactPage />;
+      case 'Process':
+        return <ProcessPage />;
       default:
         return <HomePage setActivePage={setActivePage} />;
     }
