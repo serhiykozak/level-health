@@ -293,7 +293,7 @@ const ServicesPage = ({ setActivePage }) => {
     center: 100,
     clinical: 70,
     records: 50,
-    insurance: 90,
+    insurance: 10,
     coordination: 40,
     support: 80,
     coaching: 60
