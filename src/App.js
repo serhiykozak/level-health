@@ -189,7 +189,7 @@ const HomePage = () => {
   );
 };
 
-const ServicesPage = () => {
+const ServicesPage = ({ setActivePage }) => {
   const [hoveredService, setHoveredService] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isVisible, setIsVisible] = useState(false);
@@ -676,7 +676,7 @@ const App = () => {
       case 'Home':
         return <HomePage />;
       case 'Services':
-        return <ServicesPage />;
+        return <ServicesPage setActivePage={setActivePage} />;
       case 'Case Studies':
         return <CaseStudiesPage />;
       case 'About':
