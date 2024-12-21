@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, CheckCircle, Award, GraduationCap, Heart, Stethoscope } from 'lucide-react';
 
-const AboutPage = () => (
+const AboutPage = ({ setActivePage }) => (
   <div className="container mx-auto px-4 py-12">
     {/* Hero Section */}
     <div className="text-center mb-16">
@@ -245,6 +245,27 @@ const AboutPage = () => (
           for everyone, creating a world where no one has to navigate health challenges alone.
         </p>
       </div>
+    </div>
+
+    {/* Next Page Navigation */}
+    <div className="text-center mt-12">
+      <button
+        onClick={() => {
+          setActivePage('Services');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-lg group transition-all duration-300"
+      >
+        Continue to Our Services
+        <svg 
+          className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </button>
     </div>
   </div>
 );

@@ -17,9 +17,9 @@ const App = () => {
       case 'Services':
         return <ServicesPage setActivePage={setActivePage} />;
       case 'Cases':
-        return <CaseStudiesPage />;
+        return <CaseStudiesPage setActivePage={setActivePage} />;
       case 'About':
-        return <AboutPage />;
+        return <AboutPage setActivePage={setActivePage} />;
       case 'Contact':
         return <ContactPage />;
       case 'Process':
