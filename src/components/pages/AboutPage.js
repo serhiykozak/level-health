@@ -34,18 +34,92 @@ const AboutPage = () => (
           <h3 className="text-2xl font-semibold mb-4 text-blue-900">Founder & Lead Healthcare Navigator</h3>
           <div className="space-y-4 text-gray-600">
             <p>
-              With over 15 years of experience in healthcare, Adriana brings a unique combination of clinical expertise, 
-              patient advocacy, and care navigation skills to every client interaction.
+              As a patient advocate and medical case management consultant, Adriana provides clients with the resources 
+              and knowledge required to make the most informed decisions for their healthcare needs. Her role focuses on 
+              optimizing the patient-provider experience by facilitating effective communication between patients and their 
+              healthcare providers.
             </p>
             <p>
-              Her background in nursing, combined with extensive experience in case management and healthcare navigation, 
-              allows her to provide comprehensive support that addresses both medical and personal needs.
+              With a comprehensive approach, she begins each client relationship with a thorough review of medical history 
+              and discussion of current objectives. Her goal is to broaden patient awareness of their healthcare needs while 
+              providing expert guidance in navigating the healthcare system.
             </p>
             <p>
-              Adriana founded <span className="font-bold">levɘl</span> health navigation with a vision to transform how 
-              individuals and families experience healthcare, making it more accessible, understandable, and manageable.
+              Combining her background in biochemistry from UCLA with nursing expertise from George Mason University, 
+              Adriana brings a unique scientific and clinical perspective to healthcare advocacy.
             </p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Professional Experience Section */}
+    <div className="bg-white rounded-xl shadow-lg mb-16 overflow-hidden">
+      <h3 className="text-2xl font-semibold p-8 text-blue-900 border-b">Professional Experience</h3>
+      <div className="p-8">
+        <div className="space-y-8">
+          {[
+            {
+              title: "Private Patient Advocate and Care Navigator",
+              company: "Self employed",
+              period: "2017 - Present",
+              skills: [
+                "Concierge Medicine",
+                "Treatment Planning",
+                "Health Education",
+                "Healthcare Management",
+                "Medication Adherence",
+                "Special Needs Planning",
+                "Care Plans"
+              ]
+            },
+            {
+              title: "Health And Wellness Consultant",
+              company: "Apple a Day-Care Services",
+              period: "2014 - Present",
+              skills: [
+                "Medical Case Management",
+                "Concierge Services",
+                "Neurodiversity Support",
+                "Care Plans",
+                "Organization Skills",
+                "Meal Planning"
+              ]
+            },
+            {
+              title: "Intensive Care Nurse",
+              company: "Inova Health",
+              period: "2022 - 2023",
+              skills: [
+                "Critical Care Medicine",
+                "Patient Care Management",
+                "Care Plans"
+              ]
+            },
+            {
+              title: "Research Laboratory Technician",
+              company: "Salk Institute for Biological Studies",
+              period: "2007 - 2008",
+              location: "La Jolla, California",
+              skills: ["Research", "Laboratory Techniques", "Scientific Analysis"]
+            }
+          ].map((experience, index) => (
+            <div key={index} className="border-l-4 border-blue-600 pl-4">
+              <h4 className="text-lg font-semibold text-blue-900">{experience.title}</h4>
+              <p className="text-gray-600">{experience.company}</p>
+              <p className="text-sm text-gray-500 mb-2">{experience.period}</p>
+              {experience.location && (
+                <p className="text-sm text-gray-500 mb-2">{experience.location}</p>
+              )}
+              <div className="flex flex-wrap gap-2 mt-2">
+                {experience.skills.map((skill, skillIndex) => (
+                  <span key={skillIndex} className="bg-blue-50 text-blue-700 px-2 py-1 rounded-full text-sm">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -103,10 +177,16 @@ const AboutPage = () => (
           {[
             "Patient Advocacy & Care Navigation",
             "Complex Care Coordination",
+            "Critical Care Medicine",
             "Mental Health Support",
             "Elder Care Management",
             "Insurance & Benefits Navigation",
-            "Family Support & Education"
+            "Family Support & Education",
+            "Treatment Planning",
+            "Medication Adherence",
+            "Special Needs Planning",
+            "Neurodiversity Support",
+            "Healthcare System Navigation"
           ].map((item, index) => (
             <li key={index} className="flex items-center">
               <CheckCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
