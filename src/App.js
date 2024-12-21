@@ -23,7 +23,7 @@ const App = () => {
       case 'Contact':
         return <ContactPage />;
       case 'Process':
-        return <ProcessPage />;
+        return <ProcessPage setActivePage={setActivePage} />;
       default:
         return <HomePage setActivePage={setActivePage} />;
     }

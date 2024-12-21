@@ -5,7 +5,7 @@ import {
   Stethoscope, HeartPulse, Shield, MessageCircle
 } from 'lucide-react';
 
-const ProcessPage = () => {
+const ProcessPage = ({ setActivePage }) => {
   const [activeStep, setActiveStep] = useState(null);
 
   const processSteps = [
@@ -165,7 +165,10 @@ const ProcessPage = () => {
         <h2 className="text-3xl font-bold mb-6">Ready to Begin Your Journey?</h2>
         <p className="text-xl mb-8 opacity-90">Let us guide you through each step of your healthcare navigation.</p>
         <button 
-          onClick={() => window.location.href = '/contact'}
+          onClick={() => {
+            setActivePage('Contact');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="bg-white text-blue-900 px-8 py-4 rounded-full text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
         >
           Schedule Your Initial Consultation
