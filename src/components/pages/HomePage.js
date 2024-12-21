@@ -69,14 +69,14 @@ const HomePage = ({ setActivePage }) => {
             backgroundPosition: 'center'
           }}
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-transparent"></div>
+        {/* Gradient Overlay - Updated to match light blue theme */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-transparent"></div>
         <div className="relative container mx-auto px-4 h-full flex items-center justify-center text-center md:text-left">
-          <div className="text-white max-w-2xl mx-auto md:mx-0 animate-slideUp">
+          <div className="text-blue-900 max-w-2xl mx-auto md:mx-0 animate-slideUp">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Your Healthcare Journey, Guided with Care
             </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
+            <p className="text-xl md:text-2xl mb-8 text-white">
               Expert health advocacy and care navigation services tailored to your needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
