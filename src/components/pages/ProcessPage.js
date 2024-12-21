@@ -141,6 +141,25 @@ const ProcessPage = ({ setActivePage }) => {
         </div>
       </div>
 
+      {/* Benefits Section */}
+      <div className="p-12 mb-16">
+        <h2 className="text-3xl font-bold mb-12 text-center">Benefits of Our Process</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {benefits.map((benefit, index) => (
+            <div 
+              key={index}
+              className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              <div className="flex justify-center mb-6">
+                <benefit.icon className="w-12 h-12 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-center">{benefit.title}</h3>
+              <p className="text-gray-600 text-center">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Call to Action */}
       <div className="bg-blue-50 shadow-sm w-full">
         <div className="max-w-3xl mx-auto p-12 text-center">
@@ -179,25 +198,6 @@ const ProcessPage = ({ setActivePage }) => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </button>
-      </div>
-
-      {/* Benefits Section */}
-      <div className="p-12 mb-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">Benefits of Our Process</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit, index) => (
-            <div 
-              key={index}
-              className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              <div className="flex justify-center mb-6">
-                <benefit.icon className="w-12 h-12 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4 text-center">{benefit.title}</h3>
-              <p className="text-gray-600 text-center">{benefit.description}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
