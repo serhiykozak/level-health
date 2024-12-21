@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, Navigation, Phone, Users, Home, Mail, Info, FileText, CheckCircle, Shield, Target, Stethoscope } from 'lucide-react';
+import { Heart, Navigation, Phone, Users, Home, Mail, Info, FileText, CheckCircle, Shield, Target, Stethoscope, Star } from 'lucide-react';
 
 const Navbar = ({ activePage, setActivePage }) => (
   <nav className="bg-blue-900 p-4 text-white">
@@ -31,6 +31,7 @@ const Navbar = ({ activePage, setActivePage }) => (
 
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [stats] = useState([
     { label: "Years Experience", value: 15, suffix: "+" },
     { label: "Clients Served", value: 500, suffix: "+" },
@@ -38,75 +39,149 @@ const HomePage = () => {
     { label: "Healthcare Partners", value: 75, suffix: "+" }
   ]);
 
+  const testimonials = [
+    {
+      text: "Level Health transformed our healthcare journey. Their expertise and dedication made all the difference.",
+      author: "Sarah M., Family Caregiver"
+    },
+    {
+      text: "The personalized attention and comprehensive care coordination exceeded our expectations.",
+      author: "John D., Client"
+    },
+    {
+      text: "Their advocacy services helped us navigate complex medical decisions with confidence.",
+      author: "Maria R., Client Family"
+    }
+  ];
+
   useEffect(() => {
     setIsVisible(true);
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className={`text-center mb-12 transition-all duration-1000 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
-        <h1 className="text-4xl font-bold mb-4">Welcome to Level Health</h1>
-        <p className="text-xl text-gray-600">Expert Health Advocacy & Care Navigation Services</p>
+    <div>
+      {/* Hero Section */}
+      <div className="relative h-[500px] overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80')",
+            filter: "brightness(0.7)"
+          }}
+        />
+        <div className="relative container mx-auto px-4 h-full flex items-center">
+          <div className="text-white max-w-2xl">
+            <h1 className="text-5xl font-bold mb-4 animate-fade-in">
+              Your Healthcare Journey, Guided with Care
+            </h1>
+            <p className="text-xl mb-8">
+              Expert health advocacy and care navigation services tailored to your needs
+            </p>
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg hover:bg-blue-700 transition-colors">
+              Get Started Today
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-4 gap-8 mb-12">
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className={`bg-white p-6 rounded-lg shadow-lg text-center transform transition-all duration-500 delay-${index * 200}`}
-          >
-            <div className="text-3xl font-bold text-blue-600 mb-2">
-              {stat.value}{stat.suffix}
+      <div className="container mx-auto px-4 py-8">
+        <div className={`text-center mb-12 transition-all duration-1000 transform ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <h2 className="text-3xl font-bold mb-4">Making Healthcare Simple</h2>
+          <p className="text-xl text-gray-600">Your dedicated partner in health advocacy and care navigation</p>
+        </div>
+
+        {/* Stats Section with Animation */}
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className={`bg-white p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-all duration-300`}
+            >
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                {stat.value}{stat.suffix}
+              </div>
+              <div className="text-gray-600">{stat.label}</div>
             </div>
-            <div className="text-gray-600">{stat.label}</div>
+          ))}
+        </div>
+        
+        {/* Services Grid with Enhanced Visual Effects */}
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
+            <Navigation className="w-12 h-12 text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Holistic Approach</h3>
+            <p>Merging advocacy, nursing, social work, and life coaching for comprehensive care.</p>
           </div>
-        ))}
-      </div>
-      
-      <div className="grid md:grid-cols-3 gap-8 mb-12">
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <Navigation className="w-12 h-12 text-blue-600 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Holistic Approach</h3>
-          <p>Merging advocacy, nursing, social work, and life coaching for comprehensive care.</p>
+          
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
+            <Heart className="w-12 h-12 text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Client-Centered Care</h3>
+            <p>Working directly for you, not insurance companies or hospitals.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300">
+            <Users className="w-12 h-12 text-blue-600 mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Family Support</h3>
+            <p>Supporting both clients and their families throughout the healthcare journey.</p>
+          </div>
         </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <Heart className="w-12 h-12 text-blue-600 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Client-Centered Care</h3>
-          <p>Working directly for you, not insurance companies or hospitals.</p>
-        </div>
-        
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <Users className="w-12 h-12 text-blue-600 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Family Support</h3>
-          <p>Supporting both clients and their families throughout the healthcare journey.</p>
-        </div>
-      </div>
 
-      <div className="bg-blue-50 p-8 rounded-lg shadow-lg mb-12">
-        <h2 className="text-2xl font-bold mb-4">Why Choose Level Health?</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Common Healthcare Challenges We Address:</h3>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Low healthcare literacy and system navigation</li>
-              <li>Overwhelming and confusing healthcare processes</li>
-              <li>Incomplete assessments and unmet needs</li>
-              <li>Inadequate support for clients and families</li>
-              <li>Complex insurance and benefits navigation</li>
-            </ul>
+        {/* Testimonials Section */}
+        <div className="bg-blue-50 p-8 rounded-lg shadow-lg mb-12">
+          <h2 className="text-2xl font-bold mb-8 text-center">What Our Clients Say</h2>
+          <div className="relative h-48">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={`absolute w-full transition-all duration-500 transform ${
+                  index === currentTestimonial
+                    ? 'opacity-100 translate-x-0'
+                    : 'opacity-0 translate-x-full'
+                }`}
+              >
+                <div className="flex justify-center mb-4">
+                  <Star className="w-8 h-8 text-yellow-400" fill="currentColor" />
+                  <Star className="w-8 h-8 text-yellow-400" fill="currentColor" />
+                  <Star className="w-8 h-8 text-yellow-400" fill="currentColor" />
+                  <Star className="w-8 h-8 text-yellow-400" fill="currentColor" />
+                  <Star className="w-8 h-8 text-yellow-400" fill="currentColor" />
+                </div>
+                <p className="text-xl text-center mb-4 italic">{testimonial.text}</p>
+                <p className="text-center font-semibold">{testimonial.author}</p>
+              </div>
+            ))}
           </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Our Solutions:</h3>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Comprehensive clinical assessments</li>
-              <li>Streamlined care navigation and coordination</li>
-              <li>Insurance benefits and appeals management</li>
-              <li>Educational resources and informed decision support</li>
-              <li>Worldwide service availability</li>
-            </ul>
+        </div>
+
+        <div className="bg-blue-50 p-8 rounded-lg shadow-lg mb-12">
+          <h2 className="text-2xl font-bold mb-4">Why Choose Level Health?</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Common Healthcare Challenges We Address:</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Low healthcare literacy and system navigation</li>
+                <li>Overwhelming and confusing healthcare processes</li>
+                <li>Incomplete assessments and unmet needs</li>
+                <li>Inadequate support for clients and families</li>
+                <li>Complex insurance and benefits navigation</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Our Solutions:</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Comprehensive clinical assessments</li>
+                <li>Streamlined care navigation and coordination</li>
+                <li>Insurance benefits and appeals management</li>
+                <li>Educational resources and informed decision support</li>
+                <li>Worldwide service availability</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -117,12 +192,17 @@ const HomePage = () => {
 const ServicesPage = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const categories = [
-    { id: 'all', label: 'All Services' },
-    { id: 'clinical', label: 'Clinical Services' },
-    { id: 'support', label: 'Support Services' },
-    { id: 'navigation', label: 'Navigation Services' }
+    { id: 'all', label: 'All Services', icon: Target },
+    { id: 'clinical', label: 'Clinical Services', icon: Stethoscope },
+    { id: 'support', label: 'Support Services', icon: Heart },
+    { id: 'navigation', label: 'Navigation Services', icon: Navigation }
   ];
 
   const services = [
@@ -131,6 +211,7 @@ const ServicesPage = () => {
       description: "Thorough evaluation of medical needs and development of comprehensive care plans.",
       category: "clinical",
       icon: <Stethoscope className="w-12 h-12 text-blue-600 mb-4" />,
+      image: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80",
       details: [
         "Initial health assessment",
         "Care plan development",
@@ -206,21 +287,27 @@ const ServicesPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-8">Our Comprehensive Services</h2>
+      <div className={`text-center mb-12 transition-all duration-1000 transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}>
+        <h2 className="text-3xl font-bold mb-4">Our Comprehensive Services</h2>
+        <p className="text-xl text-gray-600">Tailored healthcare solutions for every need</p>
+      </div>
 
-      <div className="mb-8">
+      <div className="mb-12">
         <div className="flex flex-wrap gap-4 justify-center">
           {categories.map(category => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-full transition-all duration-300 ${
+              className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 ${
                 selectedCategory === category.id
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-blue-600 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
-              {category.label}
+              <category.icon size={20} />
+              <span>{category.label}</span>
             </button>
           ))}
         </div>
@@ -230,27 +317,59 @@ const ServicesPage = () => {
         {filteredServices.map((service, index) => (
           <div
             key={index}
-            className={`bg-white p-6 rounded-lg shadow-lg transform transition-all duration-300 ${
+            className={`bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 ${
               hoveredService === index ? 'scale-105' : ''
             }`}
             onMouseEnter={() => setHoveredService(index)}
             onMouseLeave={() => setHoveredService(null)}
           >
-            {service.icon}
-            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-            <p className="text-gray-600 mb-4">{service.description}</p>
+            <div className="relative h-48 overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transform transition-transform duration-500 hover:scale-110"
+                style={{
+                  backgroundImage: `url(${service.image})`,
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50" />
+              <div className="absolute bottom-0 left-0 p-6 text-white">
+                <h3 className="text-2xl font-semibold mb-2">{service.title}</h3>
+              </div>
+            </div>
             
-            <div className={`transition-all duration-300 ${
-              hoveredService === index ? 'opacity-100 max-h-48' : 'opacity-0 max-h-0'
-            } overflow-hidden`}>
-              <ul className="list-disc list-inside space-y-1 text-gray-600">
-                {service.details.map((detail, i) => (
-                  <li key={i}>{detail}</li>
-                ))}
-              </ul>
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                {service.icon}
+                <p className="ml-4 text-gray-600">{service.description}</p>
+              </div>
+              
+              <div className={`transition-all duration-300 ${
+                hoveredService === index ? 'opacity-100 max-h-48' : 'opacity-0 max-h-0'
+              } overflow-hidden`}>
+                <h4 className="font-semibold mb-2">Key Features:</h4>
+                <ul className="list-disc list-inside space-y-1 text-gray-600">
+                  {service.details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 bg-blue-50 p-8 rounded-lg shadow-lg">
+        <h3 className="text-2xl font-bold mb-6 text-center">Ready to Get Started?</h3>
+        <p className="text-center text-gray-600 mb-8">
+          Contact us today to learn more about how we can support your healthcare journey.
+        </p>
+        <div className="flex justify-center">
+          <button 
+            onClick={() => setActivePage('Contact')}
+            className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg hover:bg-blue-700 transition-colors"
+          >
+            Schedule a Consultation
+          </button>
+        </div>
       </div>
     </div>
   );
