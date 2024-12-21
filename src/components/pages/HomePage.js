@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Navigation, Heart, Users, Star, TrendingUp, UserCheck, Award, Building2 } from 'lucide-react';
+import { Navigation, Heart, Users, Star, TrendingUp, UserCheck, Award, Building2, 
+  Brain, Clock, Shield } from 'lucide-react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -25,6 +26,29 @@ const HomePage = ({ setActivePage }) => {
     {
       text: "Their advocacy services helped us navigate complex medical decisions with confidence.",
       author: "Maria R., Client Family"
+    }
+  ];
+
+  const specialties = [
+    {
+      icon: Brain,
+      title: "Mental Health Support",
+      description: "Expert guidance for mental health challenges, including anxiety, depression, and complex trauma."
+    },
+    {
+      icon: Clock,
+      title: "Chronic Disease Management",
+      description: "Comprehensive support for ongoing health conditions and complex medical needs."
+    },
+    {
+      icon: Shield,
+      title: "Elder Care Navigation",
+      description: "Specialized assistance for aging adults, including care coordination and family support."
+    },
+    {
+      icon: Users,
+      title: "Family Advocacy",
+      description: "Dedicated support for families navigating complex healthcare decisions and transitions."
     }
   ];
 
@@ -55,17 +79,55 @@ const HomePage = ({ setActivePage }) => {
             <p className="text-xl md:text-2xl mb-8 opacity-90">
               Expert health advocacy and care navigation services tailored to your needs
             </p>
-            <button 
-              className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-              onClick={() => setActivePage('Contact')}
-            >
-              Get Started Today
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <button 
+                className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                onClick={() => setActivePage('Contact')}
+              >
+                Get Started Today
+              </button>
+              <button 
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                onClick={() => setActivePage('Services')}
+              >
+                View Our Services
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-16">
+        {/* Mission Statement */}
+        <div className="text-center mb-16 max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">Our Mission</h2>
+          <p className="text-xl text-gray-700 leading-relaxed">
+            To empower individuals and families through their healthcare journey by providing expert advocacy, 
+            personalized care navigation, and comprehensive support services that ensure the best possible outcomes.
+          </p>
+        </div>
+
+        {/* Core Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <Navigation className="w-16 h-16 text-blue-600 mb-6" />
+            <h3 className="text-2xl font-semibold mb-4">Holistic Approach</h3>
+            <p className="text-gray-600">Merging advocacy, nursing, social work, and life coaching for comprehensive care.</p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <Heart className="w-16 h-16 text-blue-600 mb-6" />
+            <h3 className="text-2xl font-semibold mb-4">Client-Centered Care</h3>
+            <p className="text-gray-600">Working directly for you, not insurance companies or hospitals.</p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <Users className="w-16 h-16 text-blue-600 mb-6" />
+            <h3 className="text-2xl font-semibold mb-4">Family Support</h3>
+            <p className="text-gray-600">Supporting both clients and their families throughout the healthcare journey.</p>
+          </div>
+        </div>
+
         <div className={`text-center mb-16 transition-all duration-1000 transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
@@ -90,25 +152,66 @@ const HomePage = ({ setActivePage }) => {
             </div>
           ))}
         </div>
+
+        {/* Specialties Section */}
+        <div className="mb-20">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Areas of Expertise</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {specialties.map((specialty, index) => (
+              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="flex justify-center mb-6">
+                  <specialty.icon className="w-16 h-16 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-center">{specialty.title}</h3>
+                <p className="text-gray-600 text-center">{specialty.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
         
-        {/* Services Grid with Enhanced Visual Effects */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-            <Navigation className="w-16 h-16 text-blue-600 mb-6" />
-            <h3 className="text-2xl font-semibold mb-4">Holistic Approach</h3>
-            <p className="text-gray-600">Merging advocacy, nursing, social work, and life coaching for comprehensive care.</p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-            <Heart className="w-16 h-16 text-blue-600 mb-6" />
-            <h3 className="text-2xl font-semibold mb-4">Client-Centered Care</h3>
-            <p className="text-gray-600">Working directly for you, not insurance companies or hospitals.</p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-            <Users className="w-16 h-16 text-blue-600 mb-6" />
-            <h3 className="text-2xl font-semibold mb-4">Family Support</h3>
-            <p className="text-gray-600">Supporting both clients and their families throughout the healthcare journey.</p>
+        {/* Process Section */}
+        <div className="mb-20">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                step: "1",
+                title: "Initial Consultation",
+                description: "We begin with a thorough assessment of your needs and challenges."
+              },
+              {
+                step: "2",
+                title: "Care Planning",
+                description: "Develop a personalized strategy tailored to your specific situation."
+              },
+              {
+                step: "3",
+                title: "Implementation",
+                description: "Execute the plan with continuous coordination and support."
+              },
+              {
+                step: "4",
+                title: "Ongoing Support",
+                description: "Provide continuous advocacy and adjust strategies as needed."
+              }
+            ].map((process, index) => (
+              <div key={index} className="relative">
+                <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                    {process.step}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4">{process.title}</h3>
+                  <p className="text-gray-600">{process.description}</p>
+                </div>
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -188,6 +291,26 @@ const HomePage = ({ setActivePage }) => {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="bg-blue-900 text-white p-12 rounded-2xl shadow-lg text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Journey?</h2>
+          <p className="text-xl mb-8 opacity-90">Let us help you navigate your healthcare journey with confidence.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              className="bg-white text-blue-900 px-8 py-4 rounded-full text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
+              onClick={() => setActivePage('Contact')}
+            >
+              Schedule a Consultation
+            </button>
+            <button 
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+              onClick={() => setActivePage('Cases')}
+            >
+              View Case Studies
+            </button>
           </div>
         </div>
       </div>
