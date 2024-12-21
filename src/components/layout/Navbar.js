@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Home, Phone, Info, FileText, Navigation } from 'lucide-react';
+import { Heart, Home, Phone, Info, FileText, Navigation, Route } from 'lucide-react';
 
 const Navbar = ({ activePage, setActivePage }) => {
   const menuItems = [
@@ -14,8 +14,11 @@ const Navbar = ({ activePage, setActivePage }) => {
   return (
     <nav className="bg-blue-50 p-4 shadow-sm">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
-        <div className="text-xl whitespace-nowrap text-blue-900">
-          <span className="font-bold">levɘl</span> health navigation
+        <div className="flex items-center space-x-2 text-xl whitespace-nowrap text-blue-900">
+          <Route className="w-6 h-6 text-blue-600" />
+          <div>
+            <span className="font-bold">levɘl</span> health navigation
+          </div>
         </div>
         <div className="overflow-x-auto scrollbar-hide md:overflow-visible">
           <div className="flex space-x-2 md:space-x-4 px-1">
