@@ -1,5 +1,30 @@
 import React from 'react';
 
+// Add Google Fonts
+const fontStyles = `
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap');
+`;
+
 const DebugPage = ({ setActivePage }) => {
   const colorSchemes = [
     {
@@ -80,50 +105,17 @@ const DebugPage = ({ setActivePage }) => {
     { name: 'Albert Sans', desc: 'Modern, balanced, versatile', style: 'geometric' },
     { name: 'Archivo', desc: 'Technical, structured, precise', style: 'geometric' },
     { name: 'Be Vietnam Pro', desc: 'Contemporary, elegant, refined', style: 'geometric' },
-    { name: 'Cabinet Grotesk', desc: 'Modern, distinctive, confident', style: 'geometric' },
-    { name: 'Darker Grotesque', desc: 'Bold, contemporary, unique', style: 'geometric' },
     { name: 'Epilogue', desc: 'Refined, modern, versatile', style: 'geometric' },
     { name: 'Figtree', desc: 'Clean, modern, approachable', style: 'geometric' },
-    { name: 'Golos Text', desc: 'Clear, professional, balanced', style: 'geometric' },
-    { name: 'Hanken Grotesk', desc: 'Modern, neutral, functional', style: 'geometric' },
-    { name: 'Instrument Sans', desc: 'Technical, precise, modern', style: 'geometric' },
-    { name: 'Jost', desc: 'Geometric, modern, minimal', style: 'geometric' },
-    { name: 'Kumbh Sans', desc: 'Clean, contemporary, friendly', style: 'geometric' },
-    { name: 'Lexend', desc: 'Highly readable, modern, inclusive', style: 'geometric' },
-    { name: 'Maven Pro', desc: 'Modern, technical, balanced', style: 'geometric' },
-    { name: 'Onest', desc: 'Clean, contemporary, professional', style: 'geometric' },
-    { name: 'Public Sans', desc: 'Clear, neutral, accessible', style: 'geometric' },
-    { name: 'Readex Pro', desc: 'Modern, legible, technical', style: 'geometric' },
-    { name: 'Satoshi', desc: 'Contemporary, minimal, elegant', style: 'geometric' },
-    { name: 'Space Grotesk', desc: 'Technical, modern, distinctive', style: 'geometric' },
-    { name: 'Supreme', desc: 'Premium, contemporary, refined', style: 'geometric' },
-    { name: 'Syne', desc: 'Modern, geometric, unique', style: 'geometric' },
-    { name: 'Urbanist', desc: 'Contemporary, clean, versatile', style: 'geometric' },
-    { name: 'General Sans', desc: 'Modern, balanced, professional', style: 'geometric' },
-    { name: 'Hauora', desc: 'Clean, contemporary, functional', style: 'geometric' },
-    { name: 'Switzer', desc: 'Professional, modern, refined', style: 'geometric' },
-    { name: 'Atkinson Hyperlegible', desc: 'Highly readable, accessible, clear', style: 'humanist' },
     { name: 'IBM Plex Sans', desc: 'Professional, precise, balanced', style: 'humanist' },
-    { name: 'Noto Sans', desc: 'Universal, clear, balanced', style: 'humanist' },
-    { name: 'Questrial', desc: 'Clean, balanced, approachable', style: 'humanist' },
-    { name: 'Aeonik', desc: 'Modern, premium, distinctive', style: 'geometric' },
-    { name: 'Clash Display', desc: 'Contemporary, unique, refined', style: 'geometric' },
-    { name: 'Chillax', desc: 'Modern, friendly, balanced', style: 'geometric' },
-    { name: 'Geist', desc: 'Technical, modern, precise', style: 'geometric' },
-    { name: 'Mona Sans', desc: 'Contemporary, versatile, refined', style: 'geometric' },
-    { name: 'Neue Montreal', desc: 'Modern, minimal, elegant', style: 'geometric' },
-    { name: 'Roobert', desc: 'Contemporary, friendly, balanced', style: 'geometric' },
-    { name: 'Faktum', desc: 'Professional, modern, structured', style: 'geometric' },
-    { name: 'Gilroy', desc: 'Premium, modern, versatile', style: 'geometric' },
-    { name: 'Proxima Nova', desc: 'Professional, balanced, versatile', style: 'humanist' },
-    { name: 'Sofia Pro', desc: 'Modern, friendly, balanced', style: 'geometric' },
-    { name: 'TT Commons', desc: 'Contemporary, clean, versatile', style: 'geometric' },
-    { name: 'Untitled Sans', desc: 'Minimal, modern, refined', style: 'geometric' },
-    { name: 'Visuelt', desc: 'Contemporary, distinctive, premium', style: 'geometric' }
+    { name: 'Jost', desc: 'Geometric, modern, minimal', style: 'geometric' },
+    { name: 'Lexend', desc: 'Highly readable, modern, inclusive', style: 'geometric' },
+    { name: 'Public Sans', desc: 'Clear, neutral, accessible', style: 'geometric' }
   ];
 
   return (
     <div className="container mx-auto py-8 px-4">
+      <style>{fontStyles}</style>
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Font Options</h2>
         
@@ -143,9 +135,6 @@ const DebugPage = ({ setActivePage }) => {
             </span>
             <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
               Humanist Sans: Friendly, approachable, readable ({fonts.filter(f => f.style === 'humanist').length} options)
-            </span>
-            <span className="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
-              Note: Some fonts shown require commercial licenses
             </span>
           </div>
 
