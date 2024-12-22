@@ -8,13 +8,15 @@ import AboutPage from './components/pages/AboutPage';
 import ContactPage from './components/pages/ContactPage';
 import ProcessPage from './components/pages/ProcessPage';
 import ThankYouPage from './components/pages/ThankYouPage';
-
+import DebugPage from './components/pages/DebugPage';
 
 const App = () => {
   const [activePage, setActivePage] = useState('Home');
 
   const renderPage = () => {
     switch (activePage) {
+      case 'Debug':
+        return <DebugPage setActivePage={setActivePage} />;
       case 'Home':
         return <HomePage setActivePage={setActivePage} />;
       case 'Services':
