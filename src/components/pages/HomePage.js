@@ -88,19 +88,19 @@ const HomePage = ({ setActivePage }) => {
           />
           <img
             src={`${process.env.PUBLIC_URL}/images/hero/hero-sm.jpg`}
-            alt="Healthcare professionals"
+            alt="Health navigation"
             className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-3000"
             style={{
-              filter: "brightness(0.85) opacity(0.8)"
+              filter: "brightness(0.85) opacity(0.9)"
             }}
             loading="eager" // Load immediately as it's above the fold
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-blue-50/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-blue-50/20 to-transparent"></div>
         <div className="relative container mx-auto px-4 h-full flex items-center justify-center text-center md:text-left">
           <div className="text-warm-gray-900 max-w-2xl mx-auto md:mx-0 animate-slideUp">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-blue-900">
-              Your Healthcare Journey, Guided with Care
+              Your Health Journey, Guided with Care
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-warm-gray-800">
               Expert health advocacy and care navigation services tailored to your needs
