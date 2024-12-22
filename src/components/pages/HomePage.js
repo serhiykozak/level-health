@@ -91,12 +91,12 @@ const HomePage = ({ setActivePage }) => {
             alt="Health navigation"
             className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-3000"
             style={{
-              filter: "brightness(0.85) opacity(0.9)"
+              filter: "brightness(0.85) opacity(0.8)"
             }}
             loading="eager" // Load immediately as it's above the fold
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-blue-50/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-blue-50/60 to-transparent"></div>
         <div className="relative container mx-auto px-4 h-full flex items-center justify-center text-center md:text-left">
           <div className="text-warm-gray-900 max-w-2xl mx-auto md:mx-0 animate-slideUp">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-blue-900">
