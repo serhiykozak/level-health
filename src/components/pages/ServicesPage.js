@@ -428,7 +428,15 @@ const ServicesPage = ({ setActivePage }) => {
       {/* Service Cards */}
       <div className="max-w-[95%] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {circleMenuItems.map(service => (
+          {[
+            circleMenuItems.find(item => item.id === 'center'),      // Meeting Wellness Goals
+            circleMenuItems.find(item => item.id === 'insurance'),   // Insurance Navigation
+            circleMenuItems.find(item => item.id === 'coordination'), // Provider Coordination
+            circleMenuItems.find(item => item.id === 'records'),     // Medical Records
+            circleMenuItems.find(item => item.id === 'coaching'),    // Life Coaching
+            circleMenuItems.find(item => item.id === 'clinical'),    // Clinical Assessment
+            circleMenuItems.find(item => item.id === 'support'),     // Family Support
+          ].map(service => (
             <div
               key={service.id}
               ref={el => (servicesRef.current[service.id] = el)}
