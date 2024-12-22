@@ -15,7 +15,7 @@ const Navbar = ({ activePage, setActivePage }) => {
     <nav className="bg-blue-50 p-4 shadow-sm">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         <div className="flex items-center space-x-2 text-xl whitespace-nowrap text-blue-900">
-          <Route className="w-6 h-6 text-blue-600 transform rotate-[135deg] scale-y-[-1] ml-1" />
+          <Route className="w-6 h-6 text-blue-600 transform rotate-[131deg] scale-y-[-1] ml-1" />
           <div>
             <span className="font-bold">levɘl</span> health navigation
           </div>

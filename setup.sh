@@ -24,13 +24,18 @@ if ! command_exists npm; then
     # Upgrade npm to latest version
     sudo npm install -g npm@latest
 fi
+
+# Install required system dependencies for canvas and image processing
+echo "Installing system dependencies..."
+sudo apt-get update
+sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++ librsvg2-dev
+
 # Check and install git if not installed
 if ! command_exists git; then
     echo "Installing git..."
     sudo apt-get update
     sudo apt-get install -y git
 fi
-
 
 # Remove the user input prompts and set variables directly
 github_username="Serhiy Kozak"
@@ -50,7 +55,7 @@ git config --global user.email "$git_email"
 
 # Install required dependencies
 echo "Installing dependencies..."
-npm install --legacy-peer-deps lucide-react @tailwindcss/forms tailwindcss postcss autoprefixer gh-pages
+npm install --legacy-peer-deps lucide-react @tailwindcss/forms tailwindcss postcss autoprefixer gh-pages canvas sharp
 
 # Initialize Tailwind CSS
 echo "Setting up Tailwind CSS..."
