@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 // Add Google Fonts
 const fontStyles = `
@@ -23,9 +24,78 @@ const fontStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Gudea:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:wght@400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600;700&display=swap');
 `;
 
 const DebugPage = ({ setActivePage }) => {
+  const [expandedFonts, setExpandedFonts] = useState(new Set());
+
+  const toggleFont = (fontName) => {
+    const newExpanded = new Set(expandedFonts);
+    if (newExpanded.has(fontName)) {
+      newExpanded.delete(fontName);
+    } else {
+      newExpanded.add(fontName);
+    }
+    setExpandedFonts(newExpanded);
+  };
+
   const colorSchemes = [
     {
       name: 'Current Blue',
@@ -110,7 +180,64 @@ const DebugPage = ({ setActivePage }) => {
     { name: 'IBM Plex Sans', desc: 'Professional, precise, balanced', style: 'humanist' },
     { name: 'Jost', desc: 'Geometric, modern, minimal', style: 'geometric' },
     { name: 'Lexend', desc: 'Highly readable, modern, inclusive', style: 'geometric' },
-    { name: 'Public Sans', desc: 'Clear, neutral, accessible', style: 'geometric' }
+    { name: 'Public Sans', desc: 'Clear, neutral, accessible', style: 'geometric' },
+    { name: 'Rubik', desc: 'Modern, friendly, balanced', style: 'geometric' },
+    { name: 'Space Grotesk', desc: 'Technical, distinctive, modern', style: 'geometric' },
+    { name: 'Sora', desc: 'Contemporary, tech-forward, refined', style: 'geometric' },
+    { name: 'Nunito Sans', desc: 'Friendly, approachable, balanced', style: 'humanist' },
+    { name: 'Mulish', desc: 'Clean, modern, versatile', style: 'humanist' },
+    { name: 'Karla', desc: 'Clean, approachable, versatile', style: 'humanist' },
+    { name: 'Barlow', desc: 'Modern, functional, balanced', style: 'geometric' },
+    { name: 'Lato', desc: 'Balanced, harmonious, versatile', style: 'humanist' },
+    { name: 'Roboto', desc: 'Professional, neutral, versatile', style: 'geometric' },
+    { name: 'Poppins', desc: 'Modern, friendly, geometric', style: 'geometric' },
+    { name: 'Noto Sans Display', desc: 'Clear, universal, balanced', style: 'humanist' },
+    { name: 'Overpass', desc: 'Modern, legible, versatile', style: 'geometric' },
+    { name: 'Oxygen', desc: 'Clean, modern, friendly', style: 'geometric' },
+    { name: 'Fira Sans', desc: 'Technical, versatile, balanced', style: 'humanist' },
+    { name: 'Cabin', desc: 'Humanist, versatile, readable', style: 'humanist' },
+    { name: 'Assistant', desc: 'Clean, modern, approachable', style: 'geometric' },
+    { name: 'Catamaran', desc: 'Modern, geometric, versatile', style: 'geometric' },
+    { name: 'Exo 2', desc: 'Modern, tech-forward, geometric', style: 'geometric' },
+    { name: 'Heebo', desc: 'Clean, modern, balanced', style: 'geometric' },
+    { name: 'Kanit', desc: 'Modern, distinctive, geometric', style: 'geometric' },
+    { name: 'Libre Franklin', desc: 'Classic, versatile, balanced', style: 'humanist' },
+    { name: 'Maven Pro', desc: 'Modern, clean, geometric', style: 'geometric' },
+    { name: 'Noto Sans JP', desc: 'Universal, balanced, clean', style: 'humanist' },
+    { name: 'PT Sans', desc: 'Clean, legible, versatile', style: 'humanist' },
+    { name: 'Red Hat Text', desc: 'Clear, modern, balanced', style: 'humanist' },
+    { name: 'Source Sans 3', desc: 'Clean, versatile, balanced', style: 'humanist' },
+    { name: 'Ubuntu', desc: 'Modern, friendly, distinctive', style: 'humanist' },
+    { name: 'Varela Round', desc: 'Friendly, rounded, modern', style: 'geometric' },
+    { name: 'Wix Madefor Display', desc: 'Modern, clean, balanced', style: 'geometric' },
+    { name: 'Yantramanav', desc: 'Modern, geometric, clean', style: 'geometric' },
+    { name: 'Zen Kaku Gothic New', desc: 'Modern, clean, balanced', style: 'geometric' },
+    { name: 'Asap', desc: 'Modern, balanced, versatile', style: 'geometric' },
+    { name: 'Bitter', desc: 'Contemporary slab serif, readable', style: 'humanist' },
+    { name: 'Comfortaa', desc: 'Rounded, modern, friendly', style: 'geometric' },
+    { name: 'Dosis', desc: 'Rounded, geometric, modern', style: 'geometric' },
+    { name: 'Encode Sans', desc: 'Versatile, modern, balanced', style: 'geometric' },
+    { name: 'Fredoka', desc: 'Friendly, rounded, modern', style: 'geometric' },
+    { name: 'Gudea', desc: 'Clean, modern, balanced', style: 'humanist' },
+    { name: 'Hind', desc: 'Modern, versatile, readable', style: 'humanist' },
+    { name: 'Istok Web', desc: 'Clean, professional, balanced', style: 'humanist' },
+    { name: 'Josefin Sans', desc: 'Geometric, stylish, modern', style: 'geometric' },
+    { name: 'Kalam', desc: 'Friendly, casual, handwritten', style: 'humanist' },
+    { name: 'Lora', desc: 'Elegant, readable, balanced', style: 'humanist' },
+    { name: 'M PLUS Rounded 1c', desc: 'Rounded, friendly, modern', style: 'geometric' },
+    { name: 'Nanum Gothic', desc: 'Clean, modern, balanced', style: 'geometric' },
+    { name: 'Oswald', desc: 'Condensed, modern, bold', style: 'geometric' },
+    { name: 'Playfair Display', desc: 'Elegant, classic, refined', style: 'humanist' },
+    { name: 'Questrial', desc: 'Modern, geometric, balanced', style: 'geometric' },
+    { name: 'Rajdhani', desc: 'Technical, modern, geometric', style: 'geometric' },
+    { name: 'Signika', desc: 'Clear, friendly, modern', style: 'humanist' },
+    { name: 'Titillium Web', desc: 'Modern, technical, clean', style: 'geometric' },
+    { name: 'Urbanist', desc: 'Contemporary, clean, geometric', style: 'geometric' },
+    { name: 'Vollkorn', desc: 'Classic, readable, refined', style: 'humanist' },
+    { name: 'Wendy One', desc: 'Playful, distinctive, bold', style: 'geometric' },
+    { name: 'Xanh Mono', desc: 'Monospace, technical, clean', style: 'geometric' },
+    { name: 'Ysabeau', desc: 'Modern, elegant, balanced', style: 'humanist' },
+    { name: 'Zilla Slab', desc: 'Contemporary slab, readable', style: 'humanist' }
   ];
 
   return (
@@ -138,56 +265,76 @@ const DebugPage = ({ setActivePage }) => {
             </span>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-4">
             {fonts.map(font => (
-              <div key={font.name} className="space-y-6">
-                <div className="p-6 bg-blue-50 rounded-xl shadow-lg">
-                  <div className="flex items-center gap-3 mb-4">
-                    <h4 className="text-xl font-bold text-blue-900" style={{ fontFamily: font.name }}>
-                      {font.name}
-                    </h4>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      font.style === 'geometric' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'
-                    }`}>
-                      {font.style === 'geometric' ? 'Geometric' : 'Humanist'}
-                    </span>
+              <div key={font.name} className="rounded-xl shadow-sm border border-blue-100 overflow-hidden">
+                <button
+                  onClick={() => toggleFont(font.name)}
+                  className="w-full p-6 bg-white hover:bg-blue-50 transition-colors duration-150"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-4">
+                        <h4 className="text-lg font-bold text-blue-900">{font.name}</h4>
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          font.style === 'geometric' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'
+                        }`}>
+                          {font.style === 'geometric' ? 'Geometric' : 'Humanist'}
+                        </span>
+                        <p className="text-sm text-blue-800">{font.desc}</p>
+                      </div>
+                      <div className="space-y-2" style={{ fontFamily: font.name }}>
+                        <p className="text-2xl font-bold text-blue-900">levɘl health navigation</p>
+                        <p className="text-lg text-blue-600">Your Health Journey, Guided with Care</p>
+                        <p className="text-base text-blue-800">Expert health advocacy and care navigation services</p>
+                      </div>
+                    </div>
+                    {expandedFonts.has(font.name) ? (
+                      <ChevronUp className="w-5 h-5 text-blue-600 ml-4" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-blue-600 ml-4" />
+                    )}
                   </div>
-                  <p className="text-sm text-blue-800 mb-4">{font.desc}</p>
-                  <div className="space-y-6" style={{ fontFamily: font.name }}>
-                    {colorSchemes.map(scheme => (
-                      <div key={scheme.name} className={`${scheme.bg} p-4 rounded-lg`}>
-                        <div className="space-y-3">
-                          <p className={`text-4xl font-bold ${scheme.text}`}>
-                            levɘl health navigation
-                          </p>
-                          <p className={`text-2xl ${scheme.accent}`}>
-                            Your Health Journey, Guided with Care
-                          </p>
-                          <p className={`text-base ${scheme.text}`}>
-                            Expert health advocacy and care navigation services tailored to your needs. 
-                            The quick brown fox jumps over the lazy dog.
-                          </p>
-                          <div className={`flex gap-6 ${scheme.text}`}>
-                            <span className="font-normal">Regular Weight</span>
-                            <span className="font-semibold">Semibold Weight</span>
-                            <span className="font-bold">Bold Weight</span>
-                          </div>
-                          <div className="flex gap-4 mt-4">
-                            <button className={`${scheme.button.primary} text-white px-4 py-2 rounded-full hover:opacity-90 transition-all duration-300`}>
-                              Primary Button
-                            </button>
-                            <button className={`border-2 ${scheme.button.secondary} px-4 py-2 rounded-full transition-all duration-300`}>
-                              Secondary Button
-                            </button>
-                          </div>
-                          <div className="text-sm text-gray-500 mt-2">
-                            {scheme.name} Color Scheme
+                </button>
+                
+                {expandedFonts.has(font.name) && (
+                  <div className="border-t border-blue-100">
+                    <div className="p-6 space-y-6" style={{ fontFamily: font.name }}>
+                      {colorSchemes.map(scheme => (
+                        <div key={scheme.name} className={`${scheme.bg} p-4 rounded-lg`}>
+                          <div className="space-y-3">
+                            <p className={`text-4xl font-bold ${scheme.text}`}>
+                              levɘl health navigation
+                            </p>
+                            <p className={`text-2xl ${scheme.accent}`}>
+                              Your Health Journey, Guided with Care
+                            </p>
+                            <p className={`text-base ${scheme.text}`}>
+                              Expert health advocacy and care navigation services tailored to your needs. 
+                              The quick brown fox jumps over the lazy dog.
+                            </p>
+                            <div className={`flex gap-6 ${scheme.text}`}>
+                              <span className="font-normal">Regular Weight</span>
+                              <span className="font-semibold">Semibold Weight</span>
+                              <span className="font-bold">Bold Weight</span>
+                            </div>
+                            <div className="flex gap-4 mt-4">
+                              <button className={`${scheme.button.primary} text-white px-4 py-2 rounded-full hover:opacity-90 transition-all duration-300`}>
+                                Primary Button
+                              </button>
+                              <button className={`border-2 ${scheme.button.secondary} px-4 py-2 rounded-full transition-all duration-300`}>
+                                Secondary Button
+                              </button>
+                            </div>
+                            <div className="text-sm text-gray-500 mt-2">
+                              {scheme.name} Color Scheme
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
