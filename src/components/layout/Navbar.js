@@ -21,7 +21,7 @@ const Navbar = ({ activePage, setActivePage }) => {
           }}
           className="flex items-center space-x-2 text-xl whitespace-nowrap text-blue-900 cursor-pointer hover:opacity-80 transition-opacity duration-300"
         >
-          <Route className="w-6 h-6 text-blue-600 transform rotate-[135deg] scale-y-[-1] ml-1" />
+          <Route className="w-6 h-6 text-blue-600 transform rotate-[130deg] scale-y-[-1] ml-1" />
           <div>
             <span className="font-bold">levɘl</span> health navigation
           </div>
