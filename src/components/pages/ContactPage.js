@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
 
-const ContactPage = () => {
+const ContactPage = ({ setActivePage }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  console.log('setActivePage prop:', setActivePage);
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-16">
@@ -13,7 +17,43 @@ const ContactPage = () => {
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
           <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
-          <form className="space-y-4" action="https://formspree.io/f/xlddrbon" method="POST">
+          <form 
+            action="https://formspree.io/f/xlddrbon" 
+            method="POST"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setIsSubmitting(true);
+              const form = e.target;
+              
+              try {
+                const response = await fetch(form.action, {
+                  method: 'POST',
+                  body: new FormData(form),
+                  headers: {
+                    'Accept': 'application/json'
+                  }
+                });
+
+                const data = await response.json();
+                console.log('Formspree response:', data);
+                
+                if (data.ok && typeof setActivePage === 'function') {
+                  setActivePage('ThankYou');
+                } else if (!data.ok) {
+                  console.error('Form submission error:', data);
+                  alert('Error sending message. Please try again.');
+                } else {
+                  console.error('setActivePage is not a function');
+                  alert('Navigation error. Please try refreshing the page.');
+                }
+              } catch (error) {
+                console.error('Fetch error:', error);
+                alert('Error sending message. Please try again.');
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
+          >
             <div>
               <label className="block mb-1">Name</label>
               <input type="text" name="name" className="w-full p-2 border rounded" required />
@@ -26,8 +66,14 @@ const ContactPage = () => {
               <label className="block mb-1">Message</label>
               <textarea name="message" className="w-full p-2 border rounded h-32" required></textarea>
             </div>
-            <button type="submit" className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
-              Send Message
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className={`bg-blue-600 text-white px-8 py-4 rounded-full text-lg 
+                hover:bg-blue-700 transition-all duration-300 transform 
+                hover:scale-105 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
