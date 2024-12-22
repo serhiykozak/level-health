@@ -38,7 +38,7 @@ const App = () => {
         <div className="container mx-auto text-center">
           <p className="text-blue-900 flex items-center justify-center space-x-1">
             <span>&copy; 2024</span>
-            <Route className="w-4 h-4 text-blue-600" />
+            <Route className="w-4 h-4 text-blue-600 transform rotate-[135deg] scale-y-[-1]" />
             <span><span className="font-bold">levɘl</span> health navigation. All rights reserved.</span>
           </p>
         </div>

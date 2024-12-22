@@ -21,6 +21,12 @@ const generateIcon = (size) => {
   ctx.translate(padding, padding);
   ctx.scale(scale, scale);
   
+  // Apply the same rotation and flip as in the navbar
+  ctx.translate(12, 12); // Move to center
+  ctx.rotate(135 * Math.PI / 180); // Rotate 135 degrees
+  ctx.scale(1, -1); // Flip vertically
+  ctx.translate(-12, -12); // Move back
+  
   // Set up for drawing the route icon
   ctx.strokeStyle = '#2563eb'; // blue-600
   ctx.fillStyle = '#2563eb'; // blue-600
