@@ -100,48 +100,66 @@ const ProcessPage = ({ setActivePage }) => {
       </div>
 
       {/* Process Steps */}
-      <div className="mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {processSteps.map((step, index) => (
+          <div key={index} className="relative">
             <div 
-              key={index}
-              className={`relative cursor-pointer transform transition-all duration-300 ${
-                expandedStep === index ? 'scale-105' : 'hover:scale-105'
+              className={`bg-white p-8 rounded-xl shadow-lg cursor-pointer transition-all duration-300 ${
+                expandedStep === index ? 'ring-2 ring-blue-500 transform scale-[1.02]' : 'hover:scale-[1.02]'
               }`}
               onClick={() => toggleStep(index)}
             >
-              <div className={`bg-white p-8 rounded-xl shadow-lg ${
-                expandedStep === index ? 'ring-2 ring-blue-500' : ''
-              }`}>
-                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
-                  {step.step}
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4">
+                    {step.step}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <p className="text-gray-600 mb-4">{step.description}</p>
+                  <step.icon className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
-                <p className="text-gray-600 mb-4">{step.description}</p>
-                <step.icon className="w-8 h-8 text-blue-600 mb-4" />
-                
-                {/* Expandable Details */}
-                <div className={`overflow-hidden transition-all duration-300 ${
-                  expandedStep === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}>
-                  <ul className="space-y-2 mt-4">
-                    {step.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start space-x-2">
-                        <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div
+                  className={`transform transition-transform duration-300 ${
+                    expandedStep === index ? 'rotate-180' : ''
+                  }`}
+                >
+                  <svg
+                    className="w-6 h-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </div>
               </div>
-              {index < 3 && (
-                <div className="hidden lg:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 z-10">
-                  <ArrowRight className="w-8 h-8 text-blue-600" />
-                </div>
-              )}
+              
+              {/* Expandable Details */}
+              <div className={`overflow-hidden transition-all duration-300 ${
+                expandedStep === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <ul className="space-y-2 mt-4">
+                  {step.details.map((detail, detailIndex) => (
+                    <li key={detailIndex} className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          ))}
-        </div>
+            {index < 3 && (
+              <div className="hidden lg:block absolute" style={{ right: '-1rem', top: '116px' }}>
+                <ArrowRight className="w-8 h-8 text-blue-600" />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       {/* Benefits Section */}

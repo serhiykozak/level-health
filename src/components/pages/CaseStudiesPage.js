@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import { 
+  CheckCircle2,
+  Brain,
+  Heart,
+  Target,
+  Stethoscope,
+  Globe,
+  Shield
+} from 'lucide-react';
 
 const CaseStudiesPage = ({ setActivePage }) => {
   const [expandedCases, setExpandedCases] = useState({});
@@ -6,6 +15,8 @@ const CaseStudiesPage = ({ setActivePage }) => {
   const caseStudies = [
     {
       title: "Adolescent Mental Health Support",
+      icon: Brain,
+      color: '#2563EB',
       description: "14-year-old with anxiety and school refusal. Recent completion of 8-day stay at in-patient psych facility followed by 5 months in partial hospitalization program.",
       shortServices: ["Medical record review", "School coordination", "Treatment management", "Family support"],
       expandedDetails: {
@@ -27,6 +38,8 @@ const CaseStudiesPage = ({ setActivePage }) => {
     },
     {
       title: "Elder Care Management",
+      icon: Heart,
+      color: '#DC2626',
       description: "72-year-old with neurocognitive degeneration, decreased appetite, malnutrition, and loss of speech.",
       shortServices: ["Clinical assessment", "Safety planning", "Nutrition management", "End of life care"],
       expandedDetails: {
@@ -53,6 +66,8 @@ const CaseStudiesPage = ({ setActivePage }) => {
     },
     {
       title: "Adult Mental Health & Life Coaching",
+      icon: Target,
+      color: '#7C3AED',
       description: "69-year-old with attention deficit disorder (ADD), complex trauma, and former substance use. Recent death of mother and subsequent falling out with siblings over estate division.",
       shortServices: ["Life coaching", "Family mediation", "Treatment coordination", "Emotional support"],
       expandedDetails: {
@@ -79,6 +94,8 @@ const CaseStudiesPage = ({ setActivePage }) => {
     },
     {
       title: "Complex Medical Case Management",
+      icon: Stethoscope,
+      color: '#059669',
       description: "19-year-old with cerebral palsy, epilepsy, severe cognitive dysfunction, wheelchair bound, unable to speak and requires feeding tube.",
       shortServices: ["Medical coordination", "Treatment management", "Family support", "Provider communication"],
       expandedDetails: {
@@ -104,6 +121,8 @@ const CaseStudiesPage = ({ setActivePage }) => {
     },
     {
       title: "International Care Coordination",
+      icon: Globe,
+      color: '#EA580C',
       description: "73-year-old requiring coordination between international healthcare systems and providers.",
       shortServices: ["International care navigation", "Treatment management", "Family education", "Provider communication"],
       expandedDetails: {
@@ -144,63 +163,88 @@ const CaseStudiesPage = ({ setActivePage }) => {
           Explore how we've helped clients navigate complex healthcare challenges with personalized solutions and dedicated support.
         </p>
       </div>
-      <div className="space-y-8">
+      <div className="space-y-8 max-w-[95%] mx-auto">
         {caseStudies.map((study, index) => (
           <div 
             key={index} 
-            className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl ${
-              expandedCases[index] ? 'ring-2 ring-blue-500' : ''
+            className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform ${
+              expandedCases[index] ? 'ring-2 ring-blue-500 scale-[1.02]' : 'hover:scale-[1.02]'
             }`}
           >
             <div 
-              className="p-8 cursor-pointer hover:bg-blue-50 transition-colors duration-300"
+              className="p-6 md:p-8 cursor-pointer hover:bg-blue-50 transition-colors duration-300"
               onClick={() => toggleCase(index)}
             >
-              <div className="flex justify-between items-center">
-                <h3 className="text-xl font-semibold text-blue-900">{study.title}</h3>
-                <button 
-                  className={`text-blue-600 transform transition-transform duration-300 ${
+              <div className="flex justify-between items-start">
+                <div className="pr-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <study.icon className="w-8 h-8" style={{ color: study.color }} />
+                    <h3 className="text-xl font-semibold text-blue-900">{study.title}</h3>
+                  </div>
+                  <p className="text-gray-600 mt-2">{study.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {study.shortServices.map((service, i) => (
+                      <span 
+                        key={i} 
+                        className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                      >
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div
+                  className={`transform transition-transform duration-300 flex-shrink-0 ${
                     expandedCases[index] ? 'rotate-180' : ''
                   }`}
                 >
-                  ▼
-                </button>
-              </div>
-              <p className="text-gray-600 mt-2">{study.description}</p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {study.shortServices.map((service, i) => (
-                  <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                    {service}
-                  </span>
-                ))}
+                  <svg
+                    className="w-6 h-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
-
             <div 
               className={`border-t transition-all duration-300 overflow-hidden ${
                 expandedCases[index] ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="p-8 bg-blue-50">
-                <div className="mb-6">
+              <div className="p-6 md:p-8 space-y-6">
+                <div className="bg-blue-50 p-6 rounded-lg">
                   <h4 className="text-lg font-semibold text-blue-900 mb-3">Background</h4>
                   <p className="text-gray-700">{study.expandedDetails.background}</p>
                 </div>
                 
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-blue-900 mb-3">Key Challenges</h4>
-                  <ul className="list-disc list-inside space-y-2">
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h4 className="text-lg font-semibold text-green-900 mb-3">Key Challenges</h4>
+                  <ul className="space-y-2">
                     {study.expandedDetails.challenges.map((challenge, i) => (
-                      <li key={i} className="text-gray-700">{challenge}</li>
+                      <li key={i} className="flex items-start space-x-2">
+                        <Target className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{challenge}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
                 
-                <div>
-                  <h4 className="text-lg font-semibold text-blue-900 mb-3">Services Provided</h4>
-                  <ul className="list-disc list-inside space-y-2">
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h4 className="text-lg font-semibold text-purple-900 mb-3">Services Provided</h4>
+                  <ul className="space-y-2">
                     {study.expandedDetails.servicesProvided.map((service, i) => (
-                      <li key={i} className="text-gray-700">{service}</li>
+                      <li key={i} className="flex items-start space-x-2">
+                        <Shield className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{service}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>

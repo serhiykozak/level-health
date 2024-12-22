@@ -373,115 +373,103 @@ const ServicesPage = ({ setActivePage }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 bg-white min-h-screen">
-      {/* Header */}
+    <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-8">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-900">Our Services</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Comprehensive healthcare navigation and advocacy services tailored to your unique needs.
+          Comprehensive healthcare navigation services designed to support and guide you through every step of your journey.
         </p>
       </div>
 
-      {/* The container that we measure */}
+      {/* Circle Menu */}
       <div 
         ref={containerRef} 
-        className="relative w-full min-h-[400px] md:min-h-[600px] mt-4 mb-4 overflow-visible bg-gray-50"
+        className="relative w-full min-h-[400px] md:min-h-[600px] mb-8 overflow-visible"
       >
-        {
-          circleMenuItems.map((item) => {
-            const style = getCircleStyle(item.id, item.color);
-
-            return (
-              <div
-                key={item.id}
-                style={style}
-                onMouseEnter={() => setHoveredCircle(item.id)}
-                onMouseLeave={() => setHoveredCircle(null)}
-                onClick={() => scrollToService(item.id)}
-                className="hover:scale-125 flex items-center justify-center"
-              >
-                {/* Text inside */}
-                <div style={circleTextStyle}>
-                  <item.icon
-                    style={{
-                      width: `${Math.floor(parseFloat(style.width) / 5)}px`,
-                      height: `${Math.floor(parseFloat(style.height) / 5)}px`,
-                      margin: '0 auto 4px',
-                      color: '#ffffff'
-                    }}
-                  />
-                  <div
-                    style={{
-                      fontSize: `${Math.floor(parseFloat(style.width) / 9)}px`,
-                      lineHeight: '1.1',
-                      color: '#ffffff'
-                    }}
-                  >
-                    {item.title.split(' ').map((word, i) => (
-                      <div key={i}>{word}</div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })
-        }
-      </div>
-
-      {/* Service Sections */}
-      <div className="space-y-16 mt-16">
-        {[
-          circleMenuItems.find(item => item.id === 'center'),        // Meeting Wellness Goals
-          circleMenuItems.find(item => item.id === 'insurance'),     // Insurance Navigation
-          circleMenuItems.find(item => item.id === 'coordination'),  // Provider Coordination
-          circleMenuItems.find(item => item.id === 'records'),       // Medical Records
-          circleMenuItems.find(item => item.id === 'coaching'),      // Life Coaching
-          circleMenuItems.find(item => item.id === 'clinical'),      // Clinical Assessment
-          circleMenuItems.find(item => item.id === 'support')        // Family Support
-        ].map(service => {
-          if (!service) return null; // safeguard
+        {circleMenuItems.map((item) => {
+          const style = getCircleStyle(item.id, item.color);
 
           return (
             <div
+              key={item.id}
+              style={style}
+              onMouseEnter={() => setHoveredCircle(item.id)}
+              onMouseLeave={() => setHoveredCircle(null)}
+              onClick={() => scrollToService(item.id)}
+              className="hover:scale-125 flex items-center justify-center"
+            >
+              {/* Text inside */}
+              <div style={circleTextStyle}>
+                <item.icon
+                  style={{
+                    width: `${Math.floor(parseFloat(style.width) / 5)}px`,
+                    height: `${Math.floor(parseFloat(style.height) / 5)}px`,
+                    margin: '0 auto 4px',
+                    color: '#ffffff'
+                  }}
+                />
+                <div
+                  style={{
+                    fontSize: `${Math.floor(parseFloat(style.width) / 9)}px`,
+                    lineHeight: '1.1',
+                    color: '#ffffff'
+                  }}
+                >
+                  {item.title.split(' ').map((word, i) => (
+                    <div key={i}>{word}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Service Cards */}
+      <div className="max-w-[95%] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {circleMenuItems.map(service => (
+            <div
               key={service.id}
               ref={el => (servicesRef.current[service.id] = el)}
-              className={
-                "bg-white rounded-xl shadow-lg p-8 transition-all duration-500 " +
-                (selectedCircle === service.id ? "scale-105" : "")
-              }
+              className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform ${
+                expandedSections[service.id] ? 'ring-2 ring-blue-500 scale-[1.02]' : 'hover:scale-[1.02]'
+              }`}
             >
               <div
-                className="flex items-start mb-6 cursor-pointer"
+                className="p-6 md:p-8 cursor-pointer hover:bg-blue-50 transition-colors duration-300"
                 onClick={() => toggleSection(service.id)}
               >
-                <service.icon className="w-12 h-12 text-blue-600 flex-shrink-0 mt-1" />
-                <div className="ml-6 flex-grow">
-                  <h2 className="text-2xl font-bold text-blue-900 text-left">
-                    {service.title}
-                  </h2>
-                  <p className="text-xl text-gray-600 text-left">
-                    {service.description}
-                  </p>
-                </div>
-                <div
-                  className={
-                    "transform transition-transform duration-300 flex-shrink-0 " +
-                    (expandedSections[service.id] ? "rotate-180" : "")
-                  }
-                >
-                  <svg
-                    className="w-6 h-6 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <div className="flex justify-between items-start">
+                  <div className="pr-6">
+                    <div className="flex items-center mb-4">
+                      <service.icon
+                        className="w-8 h-8 mr-3"
+                        style={{ color: service.color }}
+                      />
+                      <h3 className="text-xl font-semibold">{service.title}</h3>
+                    </div>
+                    <p className="text-gray-600">{service.description}</p>
+                  </div>
+                  <div
+                    className={`transform transition-transform duration-300 flex-shrink-0 ${
+                      expandedSections[service.id] ? 'rotate-180' : ''
+                    }`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                    <svg
+                      className="w-6 h-6 text-blue-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
 
@@ -494,7 +482,7 @@ const ServicesPage = ({ setActivePage }) => {
                 }
               >
                 {/* Core Features */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 md:p-8">
                   {service.details.map((detail, index) => (
                     <div key={index} className="flex items-start space-x-2">
                       <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -505,7 +493,7 @@ const ServicesPage = ({ setActivePage }) => {
 
                 {/* Expanded Content */}
                 {service.expandedContent && (
-                  <div className="mt-8 space-y-6">
+                  <div className="p-6 md:p-8 space-y-6">
                     {/* Key Features */}
                     <div className="bg-blue-50 p-6 rounded-lg">
                       <h3 className="text-xl font-semibold text-blue-900 mb-4 text-left">
@@ -558,11 +546,11 @@ const ServicesPage = ({ setActivePage }) => {
                 )}
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
 
-      {/* Next Page Navigation */}
+      {/* Call to Action */}
       <div className="mt-12 space-y-8">
         {/* Ready to Start Section */}
         <div className="bg-blue-50 shadow-sm w-full">
