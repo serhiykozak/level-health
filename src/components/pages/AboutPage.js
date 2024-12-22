@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, CheckCircle, Award, GraduationCap, Heart, Stethoscope } from 'lucide-react';
+import { Users, CheckCircle, Award, GraduationCap, Heart, Stethoscope, Target, Shield } from 'lucide-react';
 
 const AboutPage = ({ setActivePage }) => (
   <div className="container mx-auto px-4 py-12">
@@ -131,42 +131,26 @@ const AboutPage = ({ setActivePage }) => (
           <GraduationCap className="w-8 h-8 mr-3 text-blue-600" />
           Education & Certifications
         </h3>
-        <div className="space-y-8">
-          <div className="border-l-4 border-blue-600 pl-4">
-            <div className="flex items-start">
-              <div>
-                <h4 className="text-lg font-semibold">UCLA</h4>
-                <p className="text-gray-600">Bachelor of Science (BS), Biochemistry</p>
-                <p className="text-sm text-gray-500">2011</p>
+        <ul className="space-y-4">
+          {[
+            "BS Biochemistry - UCLA",
+            "BSN - George Mason University",
+            "Registered Nurse (RN)",
+            "Certified Case Manager (CCM)",
+            "Certified Life Coach",
+            "Mental Health First Aid Certification",
+            "Advanced Care Planning Certification",
+            "Certified Patient Advocate",
+            "Healthcare Navigation Specialist"
+          ].map((item, index) => (
+            <li key={index} className="flex items-start space-x-3 group">
+              <div className="p-1 rounded-full group-hover:bg-blue-100 transition-colors duration-300">
+                <Target className="w-5 h-5 text-blue-600" />
               </div>
-            </div>
-          </div>
-          <div className="border-l-4 border-blue-600 pl-4">
-            <div className="flex items-start">
-              <div>
-                <h4 className="text-lg font-semibold">George Mason University</h4>
-                <p className="text-gray-600">Bachelor of Science in Nursing (BSN)</p>
-                <p className="text-gray-600">Registered Nursing/Registered Nurse</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8">
-            <h4 className="text-lg font-semibold mb-4 text-blue-900">Professional Certifications</h4>
-            <ul className="space-y-4">
-              {[
-                "Registered Nurse (RN) License",
-                "Healthcare Navigation Certification",
-                "Case Management Certification",
-                "Mental Health First Aid Certification"
-              ].map((item, index) => (
-                <li key={index} className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+              <span className="text-gray-700 group-hover:text-blue-600 transition-colors duration-300">{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="bg-white p-8 rounded-xl shadow-lg">
         <h3 className="text-2xl font-semibold mb-6 text-blue-900 flex items-center">
@@ -188,9 +172,11 @@ const AboutPage = ({ setActivePage }) => (
             "Neurodiversity Support",
             "Healthcare System Navigation"
           ].map((item, index) => (
-            <li key={index} className="flex items-center">
-              <CheckCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
-              <span>{item}</span>
+            <li key={index} className="flex items-start space-x-3 group">
+              <div className="p-1 rounded-full group-hover:bg-blue-100 transition-colors duration-300">
+                <Shield className="w-5 h-5 text-blue-600" />
+              </div>
+              <span className="text-gray-700 group-hover:text-blue-600 transition-colors duration-300">{item}</span>
             </li>
           ))}
         </ul>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigation, Heart, Users, Star, TrendingUp, UserCheck, Award, Building2, 
-  Brain, Clock, Shield } from 'lucide-react';
+  Brain, Clock, Shield, Target } from 'lucide-react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -340,11 +340,9 @@ const HomePage = ({ setActivePage }) => {
                   "Complex insurance and benefits navigation"
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-3 group">
-                    <span className="inline-block p-1 rounded-full bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
+                    <div className="p-1 rounded-full group-hover:bg-blue-100 transition-colors duration-300">
+                      <Target className="w-5 h-5 text-blue-600" />
+                    </div>
                     <span className="text-gray-700 group-hover:text-blue-600 transition-colors duration-300">{item}</span>
                   </li>
                 ))}
@@ -360,11 +358,9 @@ const HomePage = ({ setActivePage }) => {
                   "Educational resources and informed decision support"
                 ].map((item, index) => (
                   <li key={index} className="flex items-start space-x-3 group">
-                    <span className="inline-block p-1 rounded-full bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
+                    <div className="p-1 rounded-full group-hover:bg-blue-100 transition-colors duration-300">
+                      <Shield className="w-5 h-5 text-blue-600" />
+                    </div>
                     <span className="text-gray-700 group-hover:text-blue-600 transition-colors duration-300">{item}</span>
                   </li>
                 ))}
