@@ -81,6 +81,56 @@ const fontStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:wght@400&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Ysabeau:wght@400;600;700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Brygada+1918:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Petrona:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Uncut+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Gantari:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=K2D:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Labrada:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nobile:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 `;
 
 const DebugPage = ({ setActivePage }) => {
@@ -237,7 +287,53 @@ const DebugPage = ({ setActivePage }) => {
     { name: 'Wendy One', desc: 'Playful, distinctive, bold', style: 'geometric' },
     { name: 'Xanh Mono', desc: 'Monospace, technical, clean', style: 'geometric' },
     { name: 'Ysabeau', desc: 'Modern, elegant, balanced', style: 'humanist' },
-    { name: 'Zilla Slab', desc: 'Contemporary slab, readable', style: 'humanist' }
+    { name: 'Zilla Slab', desc: 'Contemporary slab, readable', style: 'humanist' },
+    { name: 'Andika', desc: 'Clear, accessible, friendly', style: 'humanist' },
+    { name: 'Atkinson Hyperlegible', desc: 'Highly readable, accessible', style: 'humanist' },
+    { name: 'Azeret Mono', desc: 'Modern monospace, technical', style: 'geometric' },
+    { name: 'Bricolage Grotesque', desc: 'Contemporary, distinctive', style: 'geometric' },
+    { name: 'Commissioner', desc: 'Modern, versatile, balanced', style: 'geometric' },
+    { name: 'DM Mono', desc: 'Clean monospace, technical', style: 'geometric' },
+    { name: 'Familjen Grotesk', desc: 'Modern, clean, balanced', style: 'geometric' },
+    { name: 'Fraunces', desc: 'Elegant, refined, distinctive', style: 'humanist' },
+    { name: 'Gentium Book Plus', desc: 'Readable, scholarly', style: 'humanist' },
+    { name: 'Hanken Grotesk', desc: 'Modern, neutral, balanced', style: 'geometric' },
+    { name: 'IBM Plex Mono', desc: 'Technical, precise monospace', style: 'geometric' },
+    { name: 'JetBrains Mono', desc: 'Developer-focused monospace', style: 'geometric' },
+    { name: 'Kumbh Sans', desc: 'Modern, friendly, balanced', style: 'geometric' },
+    { name: 'League Spartan', desc: 'Bold, modern, geometric', style: 'geometric' },
+    { name: 'Martian Mono', desc: 'Futuristic monospace', style: 'geometric' },
+    { name: 'Newsreader', desc: 'Elegant, readable serif', style: 'humanist' },
+    { name: 'Onest', desc: 'Clean, modern, balanced', style: 'geometric' },
+    { name: 'Petrona', desc: 'Elegant, refined serif', style: 'humanist' },
+    { name: 'Readex Pro', desc: 'Modern, legible, clean', style: 'geometric' },
+    { name: 'Syne', desc: 'Modern, distinctive, geometric', style: 'geometric' },
+    { name: 'Unbounded', desc: 'Bold, modern, unique', style: 'geometric' },
+    { name: 'Uncut Sans', desc: 'Contemporary, clean', style: 'geometric' },
+    { name: 'Victor Mono', desc: 'Distinctive monospace', style: 'geometric' },
+    { name: 'Instrument Sans', desc: 'Modern, precise, clean', style: 'geometric' },
+    { name: 'Golos Text', desc: 'Clear, balanced, modern', style: 'geometric' },
+    { name: 'Darker Grotesque', desc: 'Bold, contemporary', style: 'geometric' },
+    { name: 'Cabinet Grotesk', desc: 'Modern, distinctive', style: 'geometric' },
+    { name: 'Chivo', desc: 'Modern, geometric, clean', style: 'geometric' },
+    { name: 'Crimson Pro', desc: 'Elegant, refined serif', style: 'humanist' },
+    { name: 'Dela Gothic One', desc: 'Bold, distinctive display', style: 'geometric' },
+    { name: 'Eczar', desc: 'Contemporary serif, readable', style: 'humanist' },
+    { name: 'Fragment Mono', desc: 'Minimalist monospace', style: 'geometric' },
+    { name: 'Gantari', desc: 'Modern, balanced, clean', style: 'geometric' },
+    { name: 'Hanuman', desc: 'Clean, balanced serif', style: 'humanist' },
+    { name: 'Inclusive Sans', desc: 'Accessible, friendly', style: 'humanist' },
+    { name: 'Jaldi', desc: 'Clean, modern, balanced', style: 'geometric' },
+    { name: 'K2D', desc: 'Modern, technical, clean', style: 'geometric' },
+    { name: 'Labrada', desc: 'Elegant, refined serif', style: 'humanist' },
+    { name: 'Metrophobic', desc: 'Modern, minimal, clean', style: 'geometric' },
+    { name: 'Nobile', desc: 'Clean, balanced, readable', style: 'humanist' },
+    { name: 'Philosopher', desc: 'Distinctive, elegant', style: 'humanist' },
+    { name: 'Quantico', desc: 'Technical, modern, sharp', style: 'geometric' },
+    { name: 'Rethink Sans', desc: 'Modern, clean, balanced', style: 'geometric' },
+    { name: 'Spline Sans', desc: 'Contemporary, balanced', style: 'geometric' },
+    { name: 'Telex', desc: 'Clean, modern, minimal', style: 'geometric' },
+    { name: 'Unica One', desc: 'Modern display, distinctive', style: 'geometric' }
   ];
 
   return (
