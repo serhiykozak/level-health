@@ -125,8 +125,8 @@ npx tailwindcss init -p
 # echo "2. Select 'gh-pages' branch as the source"
 # echo "3. Replace the contents of src/App.js with your website code"
 
-# echo "Done"
-# echo ""
+echo "Done"
+echo ""
 
 # echo "Start the server with: npm start"
 # npm start

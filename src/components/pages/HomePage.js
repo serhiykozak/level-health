@@ -51,7 +51,7 @@ const HomePage = ({ setActivePage }) => {
       description: "Dedicated support for families navigating complex healthcare decisions and transitions."
     }
   ];
-
+  
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -60,23 +60,49 @@ const HomePage = ({ setActivePage }) => {
     <div className="animate-fadeIn">
       {/* Hero Section */}
       <div className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center transform hover:scale-105 transition-transform duration-3000"
-          style={{
-            backgroundImage: "url('https://plus.unsplash.com/premium_photo-1723618898312-54269787cbe0?q=80&w=3494&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-            filter: "brightness(0.7)",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        {/* Gradient Overlay - Updated to match light blue theme */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-transparent"></div>
+        <picture>
+          {/* WebP versions */}
+          <source
+            media="(min-width: 1024px)"
+            srcSet={`${process.env.PUBLIC_URL}/images/hero/hero-lg.webp`}
+            type="image/webp"
+          />
+          <source
+            media="(min-width: 640px)"
+            srcSet={`${process.env.PUBLIC_URL}/images/hero/hero-md.webp`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`${process.env.PUBLIC_URL}/images/hero/hero-sm.webp`}
+            type="image/webp"
+          />
+          
+          {/* JPG fallbacks */}
+          <source
+            media="(min-width: 1024px)"
+            srcSet={`${process.env.PUBLIC_URL}/images/hero/hero-lg.jpg`}
+          />
+          <source
+            media="(min-width: 640px)"
+            srcSet={`${process.env.PUBLIC_URL}/images/hero/hero-md.jpg`}
+          />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/hero/hero-sm.jpg`}
+            alt="Healthcare professionals"
+            className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-3000"
+            style={{
+              filter: "brightness(0.85) opacity(0.8)"
+            }}
+            loading="eager" // Load immediately as it's above the fold
+          />
+        </picture>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-blue-50/60 to-transparent"></div>
         <div className="relative container mx-auto px-4 h-full flex items-center justify-center text-center md:text-left">
-          <div className="text-blue-900 max-w-2xl mx-auto md:mx-0 animate-slideUp">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <div className="text-warm-gray-900 max-w-2xl mx-auto md:mx-0 animate-slideUp">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-blue-900">
               Your Healthcare Journey, Guided with Care
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white">
+            <p className="text-xl md:text-2xl mb-8 text-warm-gray-800">
               Expert health advocacy and care navigation services tailored to your needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -87,7 +113,7 @@ const HomePage = ({ setActivePage }) => {
                 Get Started Today
               </button>
               <button 
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+                className="bg-white/50 backdrop-blur-sm text-blue-700 px-8 py-4 rounded-full text-lg hover:bg-white/70 transition-all duration-300 transform hover:scale-105"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                   setTimeout(() => setActivePage('Services'), 100);
