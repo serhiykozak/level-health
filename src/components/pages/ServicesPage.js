@@ -284,12 +284,12 @@ const ServicesPage = ({ setActivePage }) => {
   // Angles for each service:
   const circleAngles = {
     center: 0,
-    clinical: 150,    // 11 o’clock
-    records: 30,      // 1 o’clock
-    insurance: -90,   // 3 o’clock
-    coordination: -30,// 5 o’clock
-    support: 210,     // 7 o’clock
-    coaching: 90      // 9 o’clock
+    clinical: 150,    
+    records: 30,      
+    insurance: -90,   
+    coordination: -30,
+    support: 210,     
+    coaching: 90       
   };
 
   // For layering (z-index)
@@ -315,7 +315,7 @@ const ServicesPage = ({ setActivePage }) => {
 
     // Outer circle size = 1/3 of min dimension
     const circleSize = minDim / 3;
-    // Center circle size = 2/3 of that => 1/4.5
+    // Center circle size = 3/4 of that
     const centerSize = circleSize * (3 / 4);
 
     // Increase radius => 50 => 50% of (minDim/2)
@@ -351,7 +351,7 @@ const ServicesPage = ({ setActivePage }) => {
       backgroundColor: color,
       zIndex: hoveredCircle === id || selectedCircle === id ? 100 : zIndices[id] || 10,
       cursor: 'pointer',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      transition: 'all 0.05s ease-out',
       boxShadow: hoveredCircle === id || selectedCircle === id
         ? '0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
         : 'none',
@@ -369,7 +369,7 @@ const ServicesPage = ({ setActivePage }) => {
     left: '50%',
     top: '50%',
     transform: 'translate(-50%, -50%)',
-    transition: 'all 0.3s'
+    transition: 'all 0.05s ease-out'
   };
 
   return (
