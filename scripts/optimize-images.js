@@ -1,7 +1,7 @@
 const sharp = require('sharp');
 const path = require('path');
 
-const inputPath = 'public/images/iStock-1295563468-XL.jpg';
+const inputPath = 'public/images/iStock-1262287062-XL.jpg';//iStock-1295563468-XL.jpg';
 const outputDir = 'public/images/hero';
 
 // Ensure output directory exists
