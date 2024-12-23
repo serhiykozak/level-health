@@ -19,7 +19,7 @@ const ContactPage = ({ setActivePage }) => {
         <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
           <h3 className="text-2xl font-semibold mb-6 text-blue-900">Get in Touch</h3>
           <form 
-            action="https://docs.google.com/forms/d/e/1FAIpQLSf6zYvBDH3wvOqG4B6DEWFd_cqw9JNE469yWwnqPhiP-R_ItQ/viewform?usp=dialog"
+            action="https://formspree.io/f/xlddrbon"
             method="POST"
             target="_blank"
             onSubmit={async (e) => {
@@ -28,15 +28,22 @@ const ContactPage = ({ setActivePage }) => {
               const form = e.target;
               
               try {
+                const formspreeResponse = fetch('https://formspree.io/f/xlddrbon', {
+                  method: 'POST',
+                  body: new FormData(form),
+                  headers: {
+                    'Accept': 'application/json'
+                  }
+                });
+
                 const formData = new FormData(form);
-                
                 const googleFormData = new FormData();
                 googleFormData.append('entry.408649125', formData.get('name'));
                 googleFormData.append('entry.1597737456', formData.get('email'));
                 googleFormData.append('entry.1943926855', formData.get('message'));
 
-                const response = await fetch(
-                  'https://docs.google.com/forms/d/e/1FAIpQLSf6zYvBDH3wvOqG4B6DEWFd_cqw9JNE469yWwnqPhiP-R_ItQ/formResponse', 
+                const googleResponse = fetch(
+                  'https://docs.google.com/forms/d/e/1FAIpQLSf6zYvBDH3wvOqG4B6DEWFd_cqw9JNE469yWwnqPhiP-R_ItQ/formResponse',
                   {
                     method: 'POST',
                     body: googleFormData,
@@ -44,9 +51,24 @@ const ContactPage = ({ setActivePage }) => {
                   }
                 );
 
-                setActivePage('ThankYou');
+                const [formspreeResult] = await Promise.all([
+                  formspreeResponse,
+                  googleResponse
+                ]);
+
+                const data = await formspreeResult.json();
+                
+                if (data.ok && typeof setActivePage === 'function') {
+                  setActivePage('ThankYou');
+                } else if (!data.ok) {
+                  console.error('Form submission error:', data);
+                  alert('Error sending message. Please try again.');
+                } else {
+                  console.error('setActivePage is not a function');
+                  alert('Navigation error. Please try refreshing the page.');
+                }
               } catch (error) {
-                console.error('Form submission error:', error);
+                console.error('Fetch error:', error);
                 alert('Error sending message. Please try again.');
               } finally {
                 setIsSubmitting(false);
