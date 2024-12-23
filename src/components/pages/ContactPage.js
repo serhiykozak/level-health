@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Send, MapPin, Clock, MessageSquare } from 'lucide-react';
 
+const CONTACT_EMAIL = "xxxx@gmail.com";
+
 const ContactPage = ({ setActivePage }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -62,14 +64,14 @@ const ContactPage = ({ setActivePage }) => {
                   setActivePage('ThankYou');
                 } else if (!data.ok) {
                   console.error('Form submission error:', data);
-                  alert('Error sending message. Please try again.');
+                  alert(`Error sending message. Please try again or contact us at ${CONTACT_EMAIL}`);
                 } else {
                   console.error('setActivePage is not a function');
-                  alert('Navigation error. Please try refreshing the page.');
+                  alert(`Navigation error. Please try refreshing the page or contact us at ${CONTACT_EMAIL}`);
                 }
               } catch (error) {
                 console.error('Fetch error:', error);
-                alert('Error sending message. Please try again.');
+                alert(`Error sending message. Please try again or contact us at ${CONTACT_EMAIL}`);
               } finally {
                 setIsSubmitting(false);
               }
@@ -133,7 +135,7 @@ const ContactPage = ({ setActivePage }) => {
               <Mail className="w-6 h-6 text-blue-600" />
               <div>
                 <p className="font-medium text-blue-900">Email</p>
-                <p className="text-gray-600">xxxx@gmail.com</p>
+                <p className="text-gray-600">{CONTACT_EMAIL}</p>
               </div>
             </div>
             <div className="flex items-center space-x-4 p-4 bg-blue-50 rounded-lg">
