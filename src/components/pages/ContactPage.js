@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { Mail, Phone, Send, MapPin, Clock, MessageSquare } from 'lucide-react';
 
 const CONTACT_EMAIL = "xxxx@gmail.com";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlddrbon";
+const GOOGLE_FORM_ENDPOINT = "https://docs.google.com/forms/d/e/1FAIpQLSf6zYvBDH3wvOqG4B6DEWFd_cqw9JNE469yWwnqPhiP-R_ItQ/formResponse";
+const GOOGLE_FORM_FIELDS = {
+  name: 'entry.408649125',
+  email: 'entry.1597737456',
+  message: 'entry.1943926855'
+};
 
 const ContactPage = ({ setActivePage }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,7 +28,7 @@ const ContactPage = ({ setActivePage }) => {
         <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
           <h3 className="text-2xl font-semibold mb-6 text-blue-900">Get in Touch</h3>
           <form 
-            action="https://formspree.io/f/xlddrbon"
+            action={FORMSPREE_ENDPOINT}
             method="POST"
             target="_blank"
             onSubmit={async (e) => {
@@ -30,7 +37,7 @@ const ContactPage = ({ setActivePage }) => {
               const form = e.target;
               
               try {
-                const formspreeResponse = fetch('https://formspree.io/f/xlddrbon', {
+                const formspreeResponse = fetch(FORMSPREE_ENDPOINT, {
                   method: 'POST',
                   body: new FormData(form),
                   headers: {
@@ -40,12 +47,12 @@ const ContactPage = ({ setActivePage }) => {
 
                 const formData = new FormData(form);
                 const googleFormData = new FormData();
-                googleFormData.append('entry.408649125', formData.get('name'));
-                googleFormData.append('entry.1597737456', formData.get('email'));
-                googleFormData.append('entry.1943926855', formData.get('message'));
+                googleFormData.append(GOOGLE_FORM_FIELDS.name, formData.get('name'));
+                googleFormData.append(GOOGLE_FORM_FIELDS.email, formData.get('email'));
+                googleFormData.append(GOOGLE_FORM_FIELDS.message, formData.get('message'));
 
                 const googleResponse = fetch(
-                  'https://docs.google.com/forms/d/e/1FAIpQLSf6zYvBDH3wvOqG4B6DEWFd_cqw9JNE469yWwnqPhiP-R_ItQ/formResponse',
+                  GOOGLE_FORM_ENDPOINT,
                   {
                     method: 'POST',
                     body: googleFormData,
