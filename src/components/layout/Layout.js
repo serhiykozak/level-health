@@ -26,7 +26,9 @@ const Layout = ({ children, activePage, setActivePage }) => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar activePage={activePage} setActivePage={setActivePage} />
       <main className="flex-grow pt-16">
-        {children}
+        <div className="overflow-hidden">
+          {children}
+        </div>
       </main>
       <footer className="bg-blue-50 pt-16 pb-8 mt-12 shadow-sm">
         <Container>
@@ -35,9 +37,9 @@ const Layout = ({ children, activePage, setActivePage }) => {
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-xl text-blue-900">
                 <Route className="w-6 h-6 text-blue-600 transform rotate-[130deg] scale-y-[-1]" />
-                <Text as="span" variant="span" weight="bold">
+                <div className="whitespace-nowrap">
                   <span className="font-bold">levɘl</span> health navigation
-                </Text>
+                </div>
               </div>
               <Text color="gray-600">
                 Helping you navigate your healthcare journey with confidence.
@@ -123,11 +125,11 @@ const Layout = ({ children, activePage, setActivePage }) => {
           {/* Copyright */}
           <div className="border-t border-blue-100 pt-8">
             <div className="text-center">
-              <Text color="gray-600" className="flex items-center justify-center space-x-1">
+              <div className="flex items-center justify-center space-x-1 text-gray-600">
                 <span>&copy; {new Date().getFullYear()}</span>
                 <Route className="w-4 h-4 text-blue-600 transform rotate-[130deg] scale-y-[-1]" />
                 <span><span className="font-bold">levɘl</span> health navigation. All rights reserved.</span>
-              </Text>
+              </div>
             </div>
           </div>
         </Container>
