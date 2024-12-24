@@ -1,54 +1,49 @@
 import React from 'react';
-import theme from '../../theme';
+import PropTypes from 'prop-types';
 
 const Badge = ({ 
-  children,
+  children, 
   variant = 'default',
   size = 'md',
-  icon: Icon,
   className = '',
-  ...props 
+  onClick
 }) => {
-  // Define variant styles
-  const variantStyles = {
-    default: 'bg-gray-100 text-gray-800',
-    primary: 'bg-blue-100 text-blue-800',
-    success: 'bg-green-100 text-green-800',
-    warning: 'bg-yellow-100 text-yellow-800',
-    danger: 'bg-red-100 text-red-800',
-    info: 'bg-indigo-100 text-indigo-800',
+  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-full transition-all duration-300';
+  
+  const sizeClasses = {
+    sm: 'px-2 py-0.5 text-xs',
+    md: 'px-3 py-1 text-sm',
+    lg: 'px-4 py-1.5 text-base'
   };
 
-  // Define size styles
-  const sizeStyles = {
-    sm: 'text-xs px-2 py-0.5',
-    md: 'text-sm px-2.5 py-0.5',
-    lg: 'text-base px-3 py-1',
+  const variantClasses = {
+    default: 'bg-gray-100 text-gray-800 hover:bg-gray-200',
+    primary: 'bg-blue-100 text-blue-800 hover:bg-blue-200',
+    success: 'bg-green-100 text-green-800 hover:bg-green-200',
+    warning: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200',
+    danger: 'bg-red-100 text-red-800 hover:bg-red-200',
+    info: 'bg-cyan-100 text-cyan-800 hover:bg-cyan-200',
+    outline: 'border border-current text-gray-600 hover:bg-gray-50',
   };
-
-  const baseStyles = `
-    inline-flex
-    items-center
-    font-medium
-    rounded-full
-    transition-colors
-    duration-150
-    ${variantStyles[variant]}
-    ${sizeStyles[size]}
-    ${className}
-  `.replace(/\s+/g, ' ').trim();
 
   return (
-    <span className={baseStyles} {...props}>
-      {Icon && (
-        <Icon 
-          className={`${size === 'sm' ? 'w-3 h-3' : size === 'md' ? 'w-4 h-4' : 'w-5 h-5'} 
-            ${children ? 'mr-1.5' : ''}`}
-        />
-      )}
+    <span
+      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      onClick={onClick}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
+    >
       {children}
     </span>
   );
+};
+
+Badge.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'danger', 'info', 'outline']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Badge; 

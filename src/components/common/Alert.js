@@ -1,85 +1,67 @@
 import React from 'react';
-import { AlertCircle, CheckCircle, Info, XCircle, X } from 'lucide-react';
-import theme from '../../theme';
+import PropTypes from 'prop-types';
+import { X, AlertCircle, CheckCircle, AlertTriangle, Info } from 'lucide-react';
 
 const Alert = ({ 
-  children,
+  children, 
   variant = 'info',
   title,
-  icon: CustomIcon,
-  onClose,
+  dismissible = false,
+  onDismiss,
   className = '',
-  ...props 
+  icon: CustomIcon,
 }) => {
-  // Define variant styles and icons
-  const variants = {
-    info: {
-      icon: Info,
-      styles: 'bg-blue-50 text-blue-800 border-blue-100',
-      iconColor: 'text-blue-500',
-    },
-    success: {
-      icon: CheckCircle,
-      styles: 'bg-green-50 text-green-800 border-green-100',
-      iconColor: 'text-green-500',
-    },
-    warning: {
-      icon: AlertCircle,
-      styles: 'bg-yellow-50 text-yellow-800 border-yellow-100',
-      iconColor: 'text-yellow-500',
-    },
-    error: {
-      icon: XCircle,
-      styles: 'bg-red-50 text-red-800 border-red-100',
-      iconColor: 'text-red-500',
-    },
+  const baseClasses = 'rounded-lg p-4 flex items-start gap-3 transition-all duration-300';
+
+  const variantClasses = {
+    info: 'bg-blue-50 text-blue-800',
+    success: 'bg-green-50 text-green-800',
+    warning: 'bg-yellow-50 text-yellow-800',
+    error: 'bg-red-50 text-red-800',
   };
 
-  const Icon = CustomIcon || variants[variant].icon;
+  const variantIcons = {
+    info: Info,
+    success: CheckCircle,
+    warning: AlertTriangle,
+    error: AlertCircle,
+  };
 
-  const baseStyles = `
-    relative
-    flex
-    items-start
-    p-4
-    rounded-lg
-    border
-    ${variants[variant].styles}
-    ${className}
-  `.replace(/\s+/g, ' ').trim();
+  const Icon = CustomIcon || variantIcons[variant];
 
   return (
-    <div className={baseStyles} role="alert" {...props}>
-      <div className="flex">
-        <div className="flex-shrink-0">
-          <Icon className={`w-5 h-5 ${variants[variant].iconColor}`} />
-        </div>
-        <div className="ml-3 flex-1">
-          {title && (
-            <h3 className="text-sm font-medium mb-1">
-              {title}
-            </h3>
-          )}
-          <div className="text-sm">
-            {children}
-          </div>
-        </div>
-        {onClose && (
-          <button
-            type="button"
-            className={`ml-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 inline-flex h-8 w-8 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-              variants[variant].styles.replace('bg-', 'focus:ring-')
-            }`}
-            onClick={onClose}
-            aria-label="Dismiss"
-          >
-            <span className="sr-only">Dismiss</span>
-            <X className={`w-5 h-5 ${variants[variant].iconColor}`} />
-          </button>
+    <div className={`${baseClasses} ${variantClasses[variant]} ${className}`} role="alert">
+      {Icon && (
+        <Icon className="w-5 h-5 flex-shrink-0" />
+      )}
+      <div className="flex-1">
+        {title && (
+          <h3 className="font-semibold mb-1">{title}</h3>
         )}
+        <div className="text-sm">{children}</div>
       </div>
+      {dismissible && (
+        <button
+          type="button"
+          className="flex-shrink-0 hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-current rounded"
+          onClick={onDismiss}
+          aria-label="Dismiss"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      )}
     </div>
   );
+};
+
+Alert.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['info', 'success', 'warning', 'error']),
+  title: PropTypes.string,
+  dismissible: PropTypes.bool,
+  onDismiss: PropTypes.func,
+  className: PropTypes.string,
+  icon: PropTypes.elementType,
 };
 
 export default Alert; 
