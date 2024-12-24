@@ -21,7 +21,7 @@ const Layout = ({ children, activePage, setActivePage }) => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar activePage={activePage} setActivePage={setActivePage} />
-      <main className="flex-grow">
+      <main className="flex-grow pt-16">
         {children}
       </main>
       <footer className="bg-blue-50 pt-16 pb-8 mt-12 shadow-sm">
