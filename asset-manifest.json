@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/level-health/static/css/main.1dec3fa0.css",
+    "main.js": "/level-health/static/js/main.3a19c499.js",
+    "static/js/453.f8d3cc2a.chunk.js": "/level-health/static/js/453.f8d3cc2a.chunk.js",
+    "static/media/slick.svg": "/level-health/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/level-health/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/level-health/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/level-health/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/level-health/index.html",
+    "main.1dec3fa0.css.map": "/level-health/static/css/main.1dec3fa0.css.map",
+    "main.3a19c499.js.map": "/level-health/static/js/main.3a19c499.js.map",
+    "453.f8d3cc2a.chunk.js.map": "/level-health/static/js/453.f8d3cc2a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1dec3fa0.css",
+    "static/js/main.3a19c499.js"
+  ]
+}
